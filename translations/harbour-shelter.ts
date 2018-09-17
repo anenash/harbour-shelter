@@ -21,27 +21,11 @@
         <source>Search locations:</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Locations</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SearchPage</name>
     <message>
-        <source>About</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hotel search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -54,10 +38,6 @@
     </message>
     <message>
         <source>Check-in date: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Check-out date: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -74,6 +54,22 @@
     </message>
     <message>
         <source>Sort by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>decrease</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>increase</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -97,6 +93,25 @@
     </message>
     <message>
         <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StartPage</name>
+    <message>
+        <source>Hotel booking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

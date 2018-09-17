@@ -20,7 +20,7 @@ ApplicationWindow
         Utils.performRequest("GET", Utils.getMyIpUrl, getMyIp)
     }
 
-    initialPage: Component { SearchPage { } }
+    initialPage: Component { StartPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: Orientation.Portrait
 }

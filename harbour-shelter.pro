@@ -34,7 +34,8 @@ DISTFILES += qml/harbour-shelter.qml \
     qml/components/Utils.js \
     qml/components/SearchDialog.qml \
     qml/pages/ResultsPage.qml \
-    qml/pages/WebPage.qml
+    qml/pages/WebPage.qml \
+    qml/pages/StartPage.qml
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

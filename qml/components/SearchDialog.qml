@@ -54,10 +54,6 @@ Dialog {
     Column {
         width: parent.width
 
-        DialogHeader {
-            title: qsTr("Locations")
-        }
-
         SearchField {
             id: searchField
 
@@ -88,11 +84,12 @@ Dialog {
             id: locationsListView
 
             width: parent.width
-            height: root.height * 0.7
+            height: root.height
+
             clip: true
             spacing: Theme.paddingSmall
 
-            highlight: highlight
+//            highlight: highlight
             highlightFollowsCurrentItem: false
             currentIndex: -1
 
@@ -134,6 +131,7 @@ Dialog {
                     result.fullName = fullName
                     result.id = id
                     root.canAccept = true
+                    root.accept()
                 }
             }
         }
