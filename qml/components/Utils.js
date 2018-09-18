@@ -102,7 +102,7 @@ function fromUnixToLocalDateTime(unixFormat) {
 
 function getFullDate(date) {
     var result = date.getFullYear() + "-"
-    if (date.getMonth() < 10) {
+    if (date.getMonth() < 9) {
         result += "0" + (date.getMonth() + 1) + "-"
     } else {
         result += (date.getMonth() + 1) + "-"

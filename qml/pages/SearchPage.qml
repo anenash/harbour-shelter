@@ -136,41 +136,43 @@ Dialog {
 
             SectionHeader {
                 text: qsTr("Days")
-            }
 
-            Row {
-                anchors.horizontalCenter: parent.horizontalCenter
-                IconButton {
-                    icon.source: "image://theme/icon-m-remove"
-                    onClicked: {
-                        var t = parseInt(daysCount.text)
-                        if (t > 1) {
-                            t = t - 1
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    IconButton {
+                        icon.source: "image://theme/icon-m-remove"
+                        onClicked: {
+                            var t = parseInt(daysCount.text)
+                            if (t > 1) {
+                                t = t - 1
+                            }
+                            daysCount.text = t
+                            setCheckoutDate(t)
                         }
-                        daysCount.text = t
-                        setCheckoutDate(t)
+                    }
+                    Label {
+                        id: daysCount
+
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: parent.width * 0.25
+                        horizontalAlignment: Text.AlignHCenter
+                        text: "2"
+                    }
+                    IconButton {
+                        icon.source: "image://theme/icon-m-add"
+                        onClicked: {
+                            var t = parseInt(daysCount.text)
+                            if (t < 31) {
+                                t = t + 1
+                            }
+                            daysCount.text = t
+                            setCheckoutDate(t)
+                        }
                     }
                 }
-                Label {
-                    id: daysCount
-
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: parent.width * 0.25
-                    horizontalAlignment: Text.AlignHCenter
-                    text: "2"
-                }
-                IconButton {
-                    icon.source: "image://theme/icon-m-add"
-                    onClicked: {
-                        var t = parseInt(daysCount.text)
-                        if (t < 31) {
-                            t = t + 1
-                        }
-                        daysCount.text = t
-                        setCheckoutDate(t)
-                    }
-                }
             }
+
+
 
 //            ValueButton {
 //                id: checkoutDate
@@ -192,75 +194,77 @@ Dialog {
 
             SectionHeader {
                 text: qsTr("Adults count")
-            }
 
-            Row {
-                anchors.horizontalCenter: parent.horizontalCenter
-                IconButton {
-                    icon.source: "image://theme/icon-m-remove"
-                    onClicked: {
-                        var t = parseInt(adultsCount.text)
-                        if (t > 1) {
-                            t = t - 1
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    IconButton {
+                        icon.source: "image://theme/icon-m-remove"
+                        onClicked: {
+                            var t = parseInt(adultsCount.text)
+                            if (t > 1) {
+                                t = t - 1
+                            }
+                            adultsCount.text = t
                         }
-                        adultsCount.text = t
+                    }
+                    Label {
+                        id: adultsCount
+
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: parent.width * 0.25
+                        horizontalAlignment: Text.AlignHCenter
+                        text: "2"
+                    }
+                    IconButton {
+                        icon.source: "image://theme/icon-m-add"
+                        onClicked: {
+                            var t = parseInt(adultsCount.text)
+                            if (t < 4) {
+                                t = t + 1
+                            }
+                            adultsCount.text = t
+                        }
                     }
                 }
-                Label {
-                    id: adultsCount
-
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: parent.width * 0.25
-                    horizontalAlignment: Text.AlignHCenter
-                    text: "2"
-                }
-                IconButton {
-                    icon.source: "image://theme/icon-m-add"
-                    onClicked: {
-                        var t = parseInt(adultsCount.text)
-                        if (t < 4) {
-                            t = t + 1
-                        }
-                        adultsCount.text = t
-                    }
-                }
             }
+
 
             SectionHeader {
                 text: qsTr("Childs count")
-            }
 
-            Row {
-                anchors.horizontalCenter: parent.horizontalCenter
-                IconButton {
-                    icon.source: "image://theme/icon-m-remove"
-                    onClicked: {
-                        var t = parseInt(childsCount.text)
-                        if (t > 0) {
-                            t = t - 1
+                Row {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    IconButton {
+                        icon.source: "image://theme/icon-m-remove"
+                        onClicked: {
+                            var t = parseInt(childsCount.text)
+                            if (t > 0) {
+                                t = t - 1
+                            }
+                            childsCount.text = t
                         }
-                        childsCount.text = t
+                    }
+                    Label {
+                        id: childsCount
+
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: parent.width * 0.25
+                        horizontalAlignment: Text.AlignHCenter
+                        text: "0"
+                    }
+                    IconButton {
+                        icon.source: "image://theme/icon-m-add"
+                        onClicked: {
+                            var t = parseInt(childsCount.text)
+                            if (t < 3) {
+                                t = t + 1
+                            }
+                            childsCount.text = t
+                        }
                     }
                 }
-                Label {
-                    id: childsCount
-
-                    anchors.verticalCenter: parent.verticalCenter
-                    width: parent.width * 0.25
-                    horizontalAlignment: Text.AlignHCenter
-                    text: "0"
-                }
-                IconButton {
-                    icon.source: "image://theme/icon-m-add"
-                    onClicked: {
-                        var t = parseInt(childsCount.text)
-                        if (t < 3) {
-                            t = t + 1
-                        }
-                        childsCount.text = t
-                    }
-                }
             }
+
 
             ComboBox {
                 id: filter
