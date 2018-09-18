@@ -17,10 +17,14 @@ Page {
         property string url: ""
     }
 
+    Database {
+        id: database
+    }
+
     Timer {
         id: timer
 
-        interval: 4000
+        interval: 6000
         repeat: true
 
         onTriggered: {
@@ -122,6 +126,7 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
             delegate: HotelInfoDelegate {
                 hotelData: info
                 hotelRooms: rooms
+                currency: database.currency
             }
         }
 

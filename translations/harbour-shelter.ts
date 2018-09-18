@@ -114,5 +114,13 @@
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New search</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

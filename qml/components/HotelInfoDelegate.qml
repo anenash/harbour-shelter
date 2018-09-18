@@ -8,6 +8,7 @@ import "Utils.js" as Utils
 ListItem {
     property variant hotelData: ({})
     property variant hotelRooms: ([])
+    property string currency: ""
 
     contentHeight: Theme.itemSizeLarge
     width: parent.width
@@ -43,6 +44,7 @@ ListItem {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: Theme.paddingMedium
         color: Theme.secondaryHighlightColor
+        font.pixelSize: Theme.fontSizeTiny
 
         text: "Rating: " + hotelData.rating
     }
@@ -54,6 +56,7 @@ ListItem {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: Theme.paddingMedium
         color: Theme.secondaryHighlightColor
+        font.pixelSize: Theme.fontSizeTiny
 
         text: "from center: " + hotelData.distance + " km"
     }
@@ -68,7 +71,7 @@ ListItem {
         width: parent.width * 0.15
         color: Theme.secondaryColor
 
-        text: "Price from\n" + hotelData.price + " USD"
+        text: "Price from\n" + hotelData.price + " " + currency
     }
 
     onClicked: {

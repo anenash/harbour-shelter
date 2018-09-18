@@ -67,10 +67,14 @@ Page {
         model: 0
         delegate: Image {
             height: 300 * Theme.pixelRatio
-//            width: 400 * Theme.pixelRatio
 
             fillMode: Image.PreserveAspectFit
             source: "https://photo.hotellook.com/image_v2/limit/" + internal.hotelPhotos[index] + "/800/520.auto"
+
+            BusyIndicator {
+                anchors.centerIn: parent
+                running: parent.status === Image.Loading
+            }
 
         }
     }

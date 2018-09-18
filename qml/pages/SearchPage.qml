@@ -41,20 +41,6 @@ Dialog {
         return result
     }
 
-//    function getCitiesList(data) {
-//        if (data !== "error") {
-//            console.log(data)
-//            var parsed = JSON.parse(data)
-//            for (var i in parsed) {
-//                city[parsed[i].name.EN[0].name] = parsed[i]
-//            }
-//        }
-//    }
-
-//    Component.onCompleted: {
-//        var url = "http://engine.hotellook.com/api/v2/static/locations.json?token=" + profileInfo.token
-//        Utils.performRequest("GET", url, getCitiesList)
-//    }
     onAccepted: {
         var t = {}
         t.cityId = internal.location.id
@@ -135,7 +121,7 @@ Dialog {
             }
 
             SectionHeader {
-                text: qsTr("Days")
+                text: qsTr("Nigths")
 
                 Row {
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -194,77 +180,75 @@ Dialog {
 
             SectionHeader {
                 text: qsTr("Adults count")
+            }
 
-                Row {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    IconButton {
-                        icon.source: "image://theme/icon-m-remove"
-                        onClicked: {
-                            var t = parseInt(adultsCount.text)
-                            if (t > 1) {
-                                t = t - 1
-                            }
-                            adultsCount.text = t
+            Row {
+                anchors.horizontalCenter: parent.horizontalCenter
+                IconButton {
+                    icon.source: "image://theme/icon-m-remove"
+                    onClicked: {
+                        var t = parseInt(adultsCount.text)
+                        if (t > 1) {
+                            t = t - 1
                         }
+                        adultsCount.text = t
                     }
-                    Label {
-                        id: adultsCount
+                }
+                Label {
+                    id: adultsCount
 
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: parent.width * 0.25
-                        horizontalAlignment: Text.AlignHCenter
-                        text: "2"
-                    }
-                    IconButton {
-                        icon.source: "image://theme/icon-m-add"
-                        onClicked: {
-                            var t = parseInt(adultsCount.text)
-                            if (t < 4) {
-                                t = t + 1
-                            }
-                            adultsCount.text = t
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: parent.width * 0.25
+                    horizontalAlignment: Text.AlignHCenter
+                    text: "2"
+                }
+                IconButton {
+                    icon.source: "image://theme/icon-m-add"
+                    onClicked: {
+                        var t = parseInt(adultsCount.text)
+                        if (t < 4) {
+                            t = t + 1
                         }
+                        adultsCount.text = t
                     }
                 }
             }
-
 
             SectionHeader {
                 text: qsTr("Childs count")
+            }
 
-                Row {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    IconButton {
-                        icon.source: "image://theme/icon-m-remove"
-                        onClicked: {
-                            var t = parseInt(childsCount.text)
-                            if (t > 0) {
-                                t = t - 1
-                            }
-                            childsCount.text = t
+            Row {
+                anchors.horizontalCenter: parent.horizontalCenter
+                IconButton {
+                    icon.source: "image://theme/icon-m-remove"
+                    onClicked: {
+                        var t = parseInt(childsCount.text)
+                        if (t > 0) {
+                            t = t - 1
                         }
+                        childsCount.text = t
                     }
-                    Label {
-                        id: childsCount
+                }
+                Label {
+                    id: childsCount
 
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: parent.width * 0.25
-                        horizontalAlignment: Text.AlignHCenter
-                        text: "0"
-                    }
-                    IconButton {
-                        icon.source: "image://theme/icon-m-add"
-                        onClicked: {
-                            var t = parseInt(childsCount.text)
-                            if (t < 3) {
-                                t = t + 1
-                            }
-                            childsCount.text = t
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: parent.width * 0.25
+                    horizontalAlignment: Text.AlignHCenter
+                    text: "0"
+                }
+                IconButton {
+                    icon.source: "image://theme/icon-m-add"
+                    onClicked: {
+                        var t = parseInt(childsCount.text)
+                        if (t < 3) {
+                            t = t + 1
                         }
+                        childsCount.text = t
                     }
                 }
             }
-
 
             ComboBox {
                 id: filter

@@ -35,7 +35,8 @@ DISTFILES += qml/harbour-shelter.qml \
     qml/components/SearchDialog.qml \
     qml/pages/ResultsPage.qml \
     qml/pages/WebPage.qml \
-    qml/pages/StartPage.qml
+    qml/pages/StartPage.qml \
+    qml/components/FavoritesDelegate.qml
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -51,3 +52,6 @@ TRANSLATIONS += translations/harbour-shelter-ru.ts
 
 HEADERS += \
     src/apputils.h
+
+STATECHARTS += \
+    StateChart.scxml

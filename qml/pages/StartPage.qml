@@ -20,6 +20,7 @@ Page {
             id: head
             title: qsTr("Hotel booking")
         }
+
         PullDownMenu {
             MenuItem {
                 text: qsTr("About")
@@ -40,21 +41,35 @@ Page {
                 }
             }
         }
+
+        //    *** FAVORITES ***
+        SilicaListView {
+            id: favoritesListView
+
+            anchors { top: head.bottom; left: parent.left; right: parent.right; bottom: parent.bottom}
+
+            spacing: Theme.paddingSmall
+            clip: true
+            //                visible: !busyIndicator.running
+            header: SectionHeader {
+                text: qsTr("Search history")
+            }
+
+            model: favoritesModel
+            delegate: Rectangle {
+
+            }
+            footer: ListItem {
+                contentHeight: Theme.itemSizeMedium
+                Label {
+                    anchors.centerIn: parent
+                    text: qsTr("New search")
+                }
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("SearchPage.qml"))
+                }
+            }
+
+        }
     }
-    //*** FAVORITES ***
-    //        SilicaListView {
-    //            id: favoritesListView
-
-    //            anchors { top: head.bottom; left: parent.left; right: parent.right; bottom: offers.top }
-    //            spacing: Theme.paddingSmall
-    //            clip: true
-    //            visible: !busyIndicator.running
-    //            header: SectionHeader {
-    //                text: qsTr("Search history")
-    //            }
-
-    //            model: favoritesModel
-    //            delegate:
-
-    //        }
 }
