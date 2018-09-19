@@ -60,32 +60,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="188"/>
+        <location filename="../qml/pages/SearchPage.qml" line="187"/>
         <source>Adults count</source>
         <translation>Количество взрослых</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="224"/>
+        <location filename="../qml/pages/SearchPage.qml" line="223"/>
         <source>Childs count</source>
         <translation>Количество детей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="262"/>
+        <location filename="../qml/pages/SearchPage.qml" line="261"/>
         <source>Filter by</source>
         <translation>Фильтровать по</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="276"/>
+        <location filename="../qml/pages/SearchPage.qml" line="275"/>
         <source>Sort by</source>
         <translation>Сортировать по</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="279"/>
+        <location filename="../qml/pages/SearchPage.qml" line="278"/>
         <source>decrease</source>
         <translation>Уменьшению</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="280"/>
+        <location filename="../qml/pages/SearchPage.qml" line="279"/>
         <source>increase</source>
         <translation>Увеличению</translation>
     </message>

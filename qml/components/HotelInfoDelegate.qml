@@ -13,15 +13,26 @@ ListItem {
     contentHeight: Theme.itemSizeLarge
     width: parent.width
 
-    Label {
+//    Label {
+//        id: _hotelStars
+
+//        anchors.left: parent.left
+//        anchors.leftMargin: Theme.horizontalPageMargin
+//        anchors.verticalCenter: parent.verticalCenter
+//        width: parent.width * 0.05
+
+//        text: hotelData.stars
+//    }
+
+    Image {
         id: _hotelStars
 
         anchors.left: parent.left
         anchors.leftMargin: Theme.horizontalPageMargin
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width * 0.05
-
-        text: hotelData.stars
+        fillMode: Image.PreserveAspectFit
+        source: "../images/" + hotelData.stars + ".png"
     }
 
     Label {
