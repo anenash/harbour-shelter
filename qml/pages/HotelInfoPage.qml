@@ -75,7 +75,6 @@ Page {
                 anchors.centerIn: parent
                 running: parent.status === Image.Loading
             }
-
         }
     }
 
@@ -137,5 +136,11 @@ Page {
                 pageStack.push(Qt.resolvedUrl("WebPage.qml"), {"pageUrl": fullBookingURL})
             }
         }
+    }
+
+    ViewPlaceholder {
+        enabled: rooms.count == 0
+        text: "Hotels did not found"
+        hintText: "Please, change check-in date"
     }
 }

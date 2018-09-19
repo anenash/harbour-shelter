@@ -7,6 +7,9 @@ import "../components"
 import "../components/Utils.js" as Utils
 
 Dialog {
+    id: root
+
+    canAccept: internal.locationIsSet && internal.checkinIsSet
 
     QtObject {
         id: internal
@@ -14,7 +17,8 @@ Dialog {
         property variant location: ({})
         property variant checkin: ({})
         property variant checkout: ({})
-//        property variant city: ({})
+        property bool locationIsSet: false
+        property bool checkinIsSet: false
     }
 
     Database {
@@ -97,6 +101,7 @@ Dialog {
                         console.log("location info", JSON.stringify(dialog.result))
                         internal.location = dialog.result
                         value = dialog.result.fullName
+                        internal.locationIsSet = true
                     })
                 }
             }
@@ -116,67 +121,67 @@ Dialog {
                         internal.checkin = dialog.date
                         value = dialog.dateText
                         setCheckoutDate(parseInt(daysCount.text))
+                        internal.checkinIsSet = true
                     })
                 }
             }
 
             SectionHeader {
                 text: qsTr("Nigths")
+            }
 
-                Row {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    IconButton {
-                        icon.source: "image://theme/icon-m-remove"
-                        onClicked: {
-                            var t = parseInt(daysCount.text)
-                            if (t > 1) {
-                                t = t - 1
-                            }
-                            daysCount.text = t
-                            setCheckoutDate(t)
+            Row {
+                anchors.horizontalCenter: parent.horizontalCenter
+                IconButton {
+                    icon.source: "image://theme/icon-m-remove"
+                    onClicked: {
+                        var t = parseInt(daysCount.text)
+                        if (t > 1) {
+                            t = t - 1
                         }
+                        daysCount.text = t
+                        setCheckoutDate(t)
                     }
-                    Label {
-                        id: daysCount
+                }
+                Label {
+                    id: daysCount
 
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: parent.width * 0.25
-                        horizontalAlignment: Text.AlignHCenter
-                        text: "2"
-                    }
-                    IconButton {
-                        icon.source: "image://theme/icon-m-add"
-                        onClicked: {
-                            var t = parseInt(daysCount.text)
-                            if (t < 31) {
-                                t = t + 1
-                            }
-                            daysCount.text = t
-                            setCheckoutDate(t)
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: parent.width * 0.25
+                    horizontalAlignment: Text.AlignHCenter
+                    text: "2"
+                }
+                IconButton {
+                    icon.source: "image://theme/icon-m-add"
+                    onClicked: {
+                        var t = parseInt(daysCount.text)
+                        if (t < 31) {
+                            t = t + 1
                         }
+                        daysCount.text = t
+                        setCheckoutDate(t)
                     }
                 }
             }
 
 
+            //            ValueButton {
+            //                id: checkoutDate
 
-//            ValueButton {
-//                id: checkoutDate
+            //                label: qsTr("Check-out date: ")
+            //                value: qsTr("Select")
 
-//                label: qsTr("Check-out date: ")
-//                value: qsTr("Select")
+            //                onClicked: {
+            //                    var dialog = pageStack.push("Sailfish.Silica.DatePickerDialog", {
+            //                                                    date: new Date()
+            //                                                })
 
-//                onClicked: {
-//                    var dialog = pageStack.push("Sailfish.Silica.DatePickerDialog", {
-//                                                    date: new Date()
-//                                                })
-
-//                    dialog.accepted.connect(function() {
-//                        internal.checkout = dialog.date
-//                        value = dialog.dateText
-//                    })
-//                }
-//            }
+            //                    dialog.accepted.connect(function() {
+            //                        internal.checkout = dialog.date
+            //                        value = dialog.dateText
+            //                    })
+            //                }
+            //            }
 
             SectionHeader {
                 text: qsTr("Adults count")

@@ -61,15 +61,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Days</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>decrease</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>increase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nigths</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

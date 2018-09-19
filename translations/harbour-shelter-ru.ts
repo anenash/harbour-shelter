@@ -29,63 +29,63 @@
 <context>
     <name>SearchPage</name>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="80"/>
+        <location filename="../qml/pages/SearchPage.qml" line="84"/>
         <source>Search</source>
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="81"/>
+        <location filename="../qml/pages/SearchPage.qml" line="85"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="90"/>
+        <location filename="../qml/pages/SearchPage.qml" line="94"/>
         <source>Location: </source>
         <translation>Место:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="91"/>
-        <location filename="../qml/pages/SearchPage.qml" line="108"/>
+        <location filename="../qml/pages/SearchPage.qml" line="95"/>
+        <location filename="../qml/pages/SearchPage.qml" line="113"/>
         <source>Select</source>
         <translation>Выберите</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="107"/>
+        <location filename="../qml/pages/SearchPage.qml" line="112"/>
         <source>Check-in date: </source>
         <translation>Дата заселения:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="124"/>
-        <source>Days</source>
-        <translation>Ночей</translation>
+        <location filename="../qml/pages/SearchPage.qml" line="130"/>
+        <source>Nigths</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="182"/>
+        <location filename="../qml/pages/SearchPage.qml" line="188"/>
         <source>Adults count</source>
         <translation>Количество взрослых</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="219"/>
+        <location filename="../qml/pages/SearchPage.qml" line="224"/>
         <source>Childs count</source>
         <translation>Количество детей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="258"/>
+        <location filename="../qml/pages/SearchPage.qml" line="262"/>
         <source>Filter by</source>
         <translation>Фильтровать по</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="272"/>
+        <location filename="../qml/pages/SearchPage.qml" line="276"/>
         <source>Sort by</source>
         <translation>Сортировать по</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="275"/>
+        <location filename="../qml/pages/SearchPage.qml" line="279"/>
         <source>decrease</source>
         <translation>Уменьшению</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="276"/>
+        <location filename="../qml/pages/SearchPage.qml" line="280"/>
         <source>increase</source>
         <translation>Увеличению</translation>
     </message>
