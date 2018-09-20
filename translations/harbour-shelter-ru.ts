@@ -5,7 +5,7 @@
     <name>CoverPage</name>
     <message>
         <location filename="../qml/cover/CoverPage.qml" line="8"/>
-        <source>My Cover</source>
+        <source>Shelter</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -55,37 +55,37 @@
         <translation>Дата заселения:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="130"/>
+        <location filename="../qml/pages/SearchPage.qml" line="131"/>
         <source>Nigths</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="187"/>
+        <location filename="../qml/pages/SearchPage.qml" line="188"/>
         <source>Adults count</source>
         <translation>Количество взрослых</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="223"/>
+        <location filename="../qml/pages/SearchPage.qml" line="224"/>
         <source>Childs count</source>
         <translation>Количество детей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="261"/>
+        <location filename="../qml/pages/SearchPage.qml" line="262"/>
         <source>Filter by</source>
         <translation>Фильтровать по</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="275"/>
+        <location filename="../qml/pages/SearchPage.qml" line="276"/>
         <source>Sort by</source>
         <translation>Сортировать по</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="278"/>
+        <location filename="../qml/pages/SearchPage.qml" line="279"/>
         <source>decrease</source>
         <translation>Уменьшению</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="279"/>
+        <location filename="../qml/pages/SearchPage.qml" line="280"/>
         <source>increase</source>
         <translation>Увеличению</translation>
     </message>
@@ -93,27 +93,27 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="19"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="29"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="23"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="33"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="29"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="39"/>
         <source>Language of the search result</source>
         <translation>Язык вывода результатов поиска</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="108"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="86"/>
         <source>Currency:</source>
         <translation>Валюта:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="115"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="93"/>
         <source>Get results in currency</source>
         <translation>Выводить результаты в</translation>
     </message>
@@ -121,32 +121,32 @@
 <context>
     <name>StartPage</name>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="21"/>
+        <location filename="../qml/pages/StartPage.qml" line="58"/>
         <source>Hotel booking</source>
         <translation>Бронирование отелей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="26"/>
+        <location filename="../qml/pages/StartPage.qml" line="63"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="32"/>
+        <location filename="../qml/pages/StartPage.qml" line="69"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="38"/>
+        <location filename="../qml/pages/StartPage.qml" line="75"/>
         <source>Search</source>
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="55"/>
+        <location filename="../qml/pages/StartPage.qml" line="98"/>
         <source>Search history</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="66"/>
+        <location filename="../qml/pages/StartPage.qml" line="109"/>
         <source>New search</source>
         <translation type="unfinished"></translation>
     </message>

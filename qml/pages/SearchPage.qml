@@ -38,12 +38,12 @@ Dialog {
         DatePickerDialog {}
     }
 
-    function setCheckoutDate(days) {
-        var result = new Date(internal.checkin)
-        result.setDate(result.getDate() + days)
-        internal.checkout = result
-        return result
-    }
+//    function setCheckoutDate(days) {
+//        var result = new Date(internal.checkin)
+//        result.setDate(result.getDate() + days)
+//        internal.checkout = result
+//        return result
+//    }
 
     onAccepted: {
         var t = {}
@@ -120,7 +120,8 @@ Dialog {
                     dialog.accepted.connect(function() {
                         internal.checkin = dialog.date
                         value = dialog.dateText
-                        setCheckoutDate(parseInt(daysCount.text))
+                        internal.checkout = Utils.setCheckoutDate(internal.checkin, daysCount.text)
+//                        setCheckoutDate(parseInt(daysCount.text))
                         internal.checkinIsSet = true
                     })
                 }

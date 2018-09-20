@@ -87,6 +87,14 @@ Page {
         leftMargin: Theme.paddingSmall
         label: "Address:"
         value: hotelData.address
+
+        MouseArea {
+            anchors.fill: parent
+
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl("MapPage.qml"), {latitude: hotelData.location.lat, longitude: hotelData.location.lon})
+            }
+        }
     }
 
     ListView {

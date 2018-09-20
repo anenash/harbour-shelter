@@ -12,6 +12,16 @@ Page {
         id: database
     }
 
+    QtObject {
+        id: internal
+
+    }
+
+    Component.onCompleted: {
+        lang.currentIndex = database.getValue("language")
+        curr.currentIndex = database.getValue("currency")
+    }
+
     Column {
         anchors.fill: parent
 
@@ -31,76 +41,44 @@ Page {
             menu: ContextMenu {
                 MenuItem {
                     text: "English (US)"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "en_US")
-                    }
                 }
                 MenuItem {
                     text: "English (GB)"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "en_GB")
-                    }
                 }
                 MenuItem {
                     text: "English (AU)"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "en_AU")
-                    }
                 }
                 MenuItem {
                     text: "English (CA)"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "en_CA")
-                    }
                 }
                 MenuItem {
                     text: "English (IE)"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "en_IE")
-                    }
                 }
                 MenuItem {
                     text: "Russian"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "ru_RU")
-                    }
                 }
                 MenuItem {
                     text: "Germany"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "de_DE")
-                    }
                 }
                 MenuItem {
                     text: "Spain"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "es_ES")
-                    }
                 }
                 MenuItem {
                     text: "France"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "fr_FR")
-                    }
                 }
                 MenuItem {
                     text: "Italy"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "it_IT")
-                    }
                 }
                 MenuItem {
                     text: "Poland"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "pl_PL")
-                    }
                 }
                 MenuItem {
                     text: "Thailand"
-                    onClicked: {
-                        database.storeData("language", lang.currentIndex, "th_TH")
-                    }
                 }
+            }
+            onCurrentIndexChanged: {
+                var code = Utils.getLangCode(lang.currentIndex)
+                database.storeData("language", lang.currentIndex, code)
             }
         }
 
@@ -117,22 +95,17 @@ Page {
             menu: ContextMenu {
                 MenuItem {
                     text: "US dollar"
-                    onClicked: {
-                        database.storeData("currency", curr.currentIndex, "USD")
-                    }
                 }
                 MenuItem {
                     text: "EU euro"
-                    onClicked: {
-                        database.storeData("currency", curr.currentIndex, "EUR")
-                    }
                 }
                 MenuItem {
                     text: "Rubl"
-                    onClicked: {
-                        database.storeData("currency", curr.currentIndex, "RUB")
-                    }
                 }
+            }
+            onCurrentIndexChanged: {
+                var code = Utils.getCurrencyCode(curr.currentIndex)
+                database.storeData("currency", curr.currentIndex, code)
             }
         }
 

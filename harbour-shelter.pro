@@ -12,6 +12,8 @@
 # The name of your application
 TARGET = harbour-shelter
 
+QT += location
+
 CONFIG += sailfishapp
 
 SOURCES += src/harbour-shelter.cpp \
@@ -37,7 +39,8 @@ DISTFILES += qml/harbour-shelter.qml \
     qml/pages/WebPage.qml \
     qml/pages/StartPage.qml \
     qml/components/FavoritesDelegate.qml \
-    qml/pages/SearchHotelPage.qml
+    qml/pages/SearchHotelPage.qml \
+    qml/pages/MapPage.qml
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

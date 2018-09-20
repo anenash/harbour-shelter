@@ -160,3 +160,25 @@ function createMD5(data) {
 function onlyUnique(value, index, self) {
     return self.indexOf(value) === index
 }
+
+function setCheckoutDate(startDate, days) {
+    var result = new Date(startDate)
+    result.setDate(result.getDate() + days)
+    return result
+}
+
+function getLangCode(key) {
+    var d = ["en_US", "en_GB", "en_AU", "en_CA", "en_IE", "ru_RU", "de_DE", "es_ES", "fr_FR", "it_IT", "pl_PL", "th_TH"]
+    if (key <= d.length) {
+        return d[key]
+    }
+    return "en_US"
+}
+
+function getCurrencyCode(key) {
+    var d = ["USD", "EUR", "RUB"]
+    if (key <= d.length) {
+        return d[key]
+    }
+    return "EUR"
+}
