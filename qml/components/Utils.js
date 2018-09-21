@@ -162,8 +162,12 @@ function onlyUnique(value, index, self) {
 }
 
 function setCheckoutDate(startDate, days) {
+    var d = parseInt(days)
+    console.log("start date", startDate, "days", d)
     var result = new Date(startDate)
-    result.setDate(result.getDate() + days)
+    console.log("res date before", result, "get date", result.getDate())
+    result.setDate(result.getDate() + d)
+    console.log("res date after", result)
     return result
 }
 

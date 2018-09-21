@@ -11,6 +11,8 @@ import "../components/Utils.js" as Utils
 Page {
     id: root
 
+    backNavigation: false
+
     property real latitude: 59.91
     property real longitude: 10.75
 
@@ -99,6 +101,21 @@ Page {
                     map.center = QtPositioning.coordinate(root.latitude, root.longitude)
                     marker.coordinate = QtPositioning.coordinate(root.latitude, root.longitude)
                     console.log(map.center, "after")
+                }
+            }
+        }
+
+        MapQuickItem {
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            anchors.rightMargin: Theme.horizontalPageMargin
+            anchors.bottomMargin: Theme.paddingMedium
+            sourceItem: Button {
+                text: "Back"
+
+                onClicked: {
+                    root.backNavigation = true
+                    pageStack.pop()
                 }
             }
         }

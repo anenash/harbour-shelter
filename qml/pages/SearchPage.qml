@@ -9,14 +9,16 @@ import "../components/Utils.js" as Utils
 Dialog {
     id: root
 
+    property string searchType: "city"
+
     canAccept: internal.locationIsSet && internal.checkinIsSet
 
     QtObject {
         id: internal
 
         property variant location: ({})
-        property variant checkin: ({})
-        property variant checkout: ({})
+        property date checkin: new Date()
+        property date checkout: Utils.setCheckoutDate(checkin, "2")
         property bool locationIsSet: false
         property bool checkinIsSet: false
     }
@@ -47,7 +49,12 @@ Dialog {
 
     onAccepted: {
         var t = {}
-        t.cityId = internal.location.id
+        if (searchType === "city") {
+            t.cityId = internal.location.id
+        } else {
+            t.hotelId = internal.location.id
+        }
+
         t.checkIn = Utils.getFullDate(internal.checkin)
         t.checkOut = Utils.getFullDate(internal.checkout)
         t.adultsCount = adultsCount.text
@@ -58,7 +65,12 @@ Dialog {
         t.waitForResult = "0"
 
         var url = Utils.baseUrl + "/api/v2/search/start.json?"
-        url += "cityId=" + internal.location.id
+        if (searchType === "city") {
+            url += "cityId=" + internal.location.id
+        } else {
+            url += "hotelId=" + internal.location.id
+        }
+//        url += "cityId=" + internal.location.id
         url += "&checkIn=" + Utils.getFullDate(internal.checkin)
         url += "&checkOut=" + Utils.getFullDate(internal.checkout)
         url += "&adultsCount=" + adultsCount.text
@@ -95,14 +107,18 @@ Dialog {
                 value: qsTr("Select")
 
                 onClicked: {
-                    var dialog = pageStack.push(searchDialog)
+                    if (searchType !== "coordinates") {
+                        var dialog = pageStack.push(searchDialog, {requestType: searchType})
 
-                    dialog.accepted.connect(function() {
-                        console.log("location info", JSON.stringify(dialog.result))
-                        internal.location = dialog.result
-                        value = dialog.result.fullName
-                        internal.locationIsSet = true
-                    })
+                        dialog.accepted.connect(function() {
+                            console.log("location info", JSON.stringify(dialog.result))
+                            internal.location = dialog.result
+                            value = dialog.result.fullName
+                            internal.locationIsSet = true
+                        })
+                    } else {
+                        var coord = pageStack.push(Qt.resolvedUrl("MapPage.qml"))
+                    }
                 }
             }
 
@@ -141,7 +157,7 @@ Dialog {
                             t = t - 1
                         }
                         daysCount.text = t
-                        setCheckoutDate(t)
+                        internal.checkout = Utils.setCheckoutDate(internal.checkin, t)
                     }
                 }
                 Label {
@@ -160,7 +176,7 @@ Dialog {
                             t = t + 1
                         }
                         daysCount.text = t
-                        setCheckoutDate(t)
+                        internal.checkout = Utils.setCheckoutDate(internal.checkin, t)
                     }
                 }
             }

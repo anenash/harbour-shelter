@@ -21,6 +21,14 @@
         <source>Search locations:</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Search hotels:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>hotels count: </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchPage</name>
@@ -111,15 +119,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Search</source>
+        <source>Search by hotel name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Search history</source>
+        <source>Search by city</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New search</source>
+        <source>Search by coordinates</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

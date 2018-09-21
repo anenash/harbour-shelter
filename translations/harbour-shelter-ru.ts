@@ -21,71 +21,81 @@
 <context>
     <name>SearchDialog</name>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="61"/>
+        <location filename="../qml/components/SearchDialog.qml" line="71"/>
         <source>Search locations:</source>
         <translation>Поиск локаций:</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SearchDialog.qml" line="72"/>
+        <source>Search hotels:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SearchDialog.qml" line="134"/>
+        <source>hotels count: </source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SearchPage</name>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="84"/>
+        <location filename="../qml/pages/SearchPage.qml" line="96"/>
         <source>Search</source>
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="85"/>
+        <location filename="../qml/pages/SearchPage.qml" line="97"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="94"/>
+        <location filename="../qml/pages/SearchPage.qml" line="106"/>
         <source>Location: </source>
         <translation>Место:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="95"/>
-        <location filename="../qml/pages/SearchPage.qml" line="113"/>
+        <location filename="../qml/pages/SearchPage.qml" line="107"/>
+        <location filename="../qml/pages/SearchPage.qml" line="129"/>
         <source>Select</source>
         <translation>Выберите</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="112"/>
+        <location filename="../qml/pages/SearchPage.qml" line="128"/>
         <source>Check-in date: </source>
         <translation>Дата заселения:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="131"/>
+        <location filename="../qml/pages/SearchPage.qml" line="147"/>
         <source>Nigths</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="188"/>
+        <location filename="../qml/pages/SearchPage.qml" line="204"/>
         <source>Adults count</source>
         <translation>Количество взрослых</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="224"/>
+        <location filename="../qml/pages/SearchPage.qml" line="240"/>
         <source>Childs count</source>
         <translation>Количество детей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="262"/>
+        <location filename="../qml/pages/SearchPage.qml" line="278"/>
         <source>Filter by</source>
         <translation>Фильтровать по</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="276"/>
+        <location filename="../qml/pages/SearchPage.qml" line="292"/>
         <source>Sort by</source>
         <translation>Сортировать по</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="279"/>
+        <location filename="../qml/pages/SearchPage.qml" line="295"/>
         <source>decrease</source>
         <translation>Уменьшению</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="280"/>
+        <location filename="../qml/pages/SearchPage.qml" line="296"/>
         <source>increase</source>
         <translation>Увеличению</translation>
     </message>
@@ -122,33 +132,36 @@
     <name>StartPage</name>
     <message>
         <location filename="../qml/pages/StartPage.qml" line="58"/>
+        <location filename="../qml/pages/StartPage.qml" line="59"/>
+        <source>Search by hotel name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StartPage.qml" line="64"/>
+        <location filename="../qml/pages/StartPage.qml" line="65"/>
+        <source>Search by city</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StartPage.qml" line="70"/>
+        <location filename="../qml/pages/StartPage.qml" line="71"/>
+        <source>Search by coordinates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StartPage.qml" line="81"/>
         <source>Hotel booking</source>
         <translation>Бронирование отелей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="63"/>
+        <location filename="../qml/pages/StartPage.qml" line="86"/>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="69"/>
+        <location filename="../qml/pages/StartPage.qml" line="92"/>
         <source>Settings</source>
         <translation>Настройки</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StartPage.qml" line="75"/>
-        <source>Search</source>
-        <translation>Поиск</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StartPage.qml" line="98"/>
-        <source>Search history</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/StartPage.qml" line="109"/>
-        <source>New search</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
