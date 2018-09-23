@@ -24,6 +24,16 @@ Item {
             storeData("language", 0, "en_US")
         }
         language = lang
+
+        var fltr = getValue("filter")
+        if (!fltr) {
+            storeData("filter", 0, "")
+        }
+
+        var srt = getValue("sort")
+        if (!srt) {
+            storeData("sort", 0, "")
+        }
     }
 
     QtObject {
@@ -114,9 +124,9 @@ Item {
         if(!internal._db) { return }
         internal._db.transaction( function(tx) {
             var result = tx.executeSql('SELECT value FROM favorites')
-            console.log(result, JSON.stringify(result))
+//            console.log(result, JSON.stringify(result))
             for(var i = 0; i < result.rows.length; i++) {
-                print(result.rows.item(i).value)
+//                print(result.rows.item(i).value)
                 res.push(result.rows.item(i).value)
             }
         })

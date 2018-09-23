@@ -11,6 +11,7 @@ Dialog {
 
     property string searchType: "city"
 
+
     canAccept: internal.locationIsSet && internal.checkinIsSet
 
     QtObject {
@@ -21,6 +22,9 @@ Dialog {
         property date checkout: Utils.setCheckoutDate(checkin, "2")
         property bool locationIsSet: false
         property bool checkinIsSet: false
+
+        property real lat
+        property real lon
     }
 
     Database {
@@ -40,19 +44,36 @@ Dialog {
         DatePickerDialog {}
     }
 
-//    function setCheckoutDate(days) {
-//        var result = new Date(internal.checkin)
-//        result.setDate(result.getDate() + days)
-//        internal.checkout = result
-//        return result
-//    }
+    Timer {
+        id: openLocation
+
+        interval: 200
+
+        onTriggered: {
+            var dialog = pageStack.push(searchDialog, {requestType: searchType, lat: internal.lat, lon: internal.lon})
+
+            dialog.accepted.connect(function() {
+                console.log("location info", JSON.stringify(dialog.result))
+                internal.location = dialog.result
+                value = dialog.result.fullName
+                internal.locationIsSet = true
+            })
+        }
+    }
+
+    Component.onCompleted: {
+        sort.currentIndex = database.getValue("sort")
+        filter.currentIndex = database.getValue("filter")
+    }
 
     onAccepted: {
         var t = {}
         if (searchType === "city") {
             t.cityId = internal.location.id
+            t.waitForResult = "0"
         } else {
             t.hotelId = internal.location.id
+            t.waitForResult = "1"
         }
 
         t.checkIn = Utils.getFullDate(internal.checkin)
@@ -62,27 +83,31 @@ Dialog {
         t.childrenCount = childsCount.text
         t.lang = database.language //"ru_RU"
         t.currency = database.currency //"USD"
-        t.waitForResult = "0"
 
         var url = Utils.baseUrl + "/api/v2/search/start.json?"
         if (searchType === "city") {
-            url += "cityId=" + internal.location.id
+            url += "cityId=" + t.cityId
         } else {
-            url += "hotelId=" + internal.location.id
+            url += "hotelId=" + t.hotelId
         }
 //        url += "cityId=" + internal.location.id
-        url += "&checkIn=" + Utils.getFullDate(internal.checkin)
-        url += "&checkOut=" + Utils.getFullDate(internal.checkout)
-        url += "&adultsCount=" + adultsCount.text
-        url += "&customerIP=" + app.myIp
-        url += "&childrenCount=" + childsCount.text
-        url += "&lang=" + database.language  //"ru_RU"
-        url += "&currency=" + database.currency //"USD"
-        url += "&waitForResult=0"
+        url += "&checkIn=" + t.checkIn
+        url += "&checkOut=" + t.checkOut
+        url += "&adultsCount=" + t.adultsCount
+        url += "&customerIP=" + t.customerIP
+        url += "&childrenCount=" + t.childrenCount
+        url += "&lang=" + t.lang
+        url += "&currency=" + t.currency
+        url += "&waitForResult=" + t.waitForResult
         url += "&marker=" + profileInfo.marker
         url += "&signature=" + Utils.createMD5(t)
 
-        pageStack.push(Qt.resolvedUrl("ResultsPage.qml"), {searchUrl: url, filterBy: filter.currentItem.text, sortBy: sort.currentIndex})
+        pageStack.push(Qt.resolvedUrl("ResultsPage.qml"), {"searchType": searchType,
+                           searchUrl: url,
+                           filterBy: filter.currentItem.text,
+                           sortBy: sort.currentIndex,
+                           hotelTitle: locationField.value
+                       })
     }
 
 
@@ -103,22 +128,20 @@ Dialog {
             width: parent.width
 
             ValueButton {
+                id: locationField
+
                 label: qsTr("Location: ")
                 value: qsTr("Select")
 
                 onClicked: {
-                    if (searchType !== "coordinates") {
-                        var dialog = pageStack.push(searchDialog, {requestType: searchType})
+                    var dialog = pageStack.push(searchDialog, {requestType: searchType})
 
-                        dialog.accepted.connect(function() {
-                            console.log("location info", JSON.stringify(dialog.result))
-                            internal.location = dialog.result
-                            value = dialog.result.fullName
-                            internal.locationIsSet = true
-                        })
-                    } else {
-                        var coord = pageStack.push(Qt.resolvedUrl("MapPage.qml"))
-                    }
+                    dialog.accepted.connect(function() {
+                        console.log("location info", JSON.stringify(dialog.result))
+                        internal.location = dialog.result
+                        value = dialog.result.fullName
+                        internal.locationIsSet = true
+                    })
                 }
             }
 
@@ -130,7 +153,7 @@ Dialog {
 
                 onClicked: {
                     var dialog = pageStack.push("Sailfish.Silica.DatePickerDialog", {
-                                                    date: new Date()
+                                                    date: internal.checkin
                                                 })
 
                     dialog.accepted.connect(function() {
@@ -276,6 +299,7 @@ Dialog {
                 id: filter
 
                 label: qsTr("Filter by")
+                visible: searchType === "city"
 
                 menu: ContextMenu {
                     MenuItem { text: "name" }
@@ -284,16 +308,25 @@ Dialog {
                     MenuItem { text: "rating" }
                     MenuItem { text: "stars" }
                 }
+
+                onCurrentIndexChanged: {
+                    database.storeData("filter", currentIndex, "")
+                }
             }
 
             ComboBox {
                 id: sort
 
                 label: qsTr("Sort by")
+                visible: searchType === "city"
 
                 menu: ContextMenu {
                     MenuItem { text: qsTr("decrease") }
                     MenuItem { text: qsTr("increase") }
+                }
+
+                onCurrentIndexChanged: {
+                    database.storeData("sort", currentIndex, "")
                 }
             }
         }

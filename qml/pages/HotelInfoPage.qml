@@ -1,4 +1,6 @@
 import QtQuick 2.6
+import QtPositioning 5.3
+import QtLocation 5.0
 import Sailfish.Silica 1.0
 
 import app.utils 1.0
@@ -20,12 +22,26 @@ Page {
         id: rooms
     }
 
+    Database {
+        id: database
+    }
+
+    Plugin {
+        id: mapPlugin
+
+        name: "osm"
+        preferred:"osm"
+        locales: ["fr_FR","en_US","de_DE","ru_RU"]
+    }
+
     Component.onCompleted: {
 //        console.log(JSON.stringify(hotelRooms))
 //        console.log(JSON.stringify(hotelData))
 //        console.log(JSON.stringify(hotelData.rooms))
 
 //        console.log(JSON.stringify(hotelData.amenities))
+
+        database.storeFavorite(hotelData.id, JSON.stringify(hotelData))
 
         var r = JSON.parse(hotelRooms)
         for (var i in r) {
@@ -74,6 +90,44 @@ Page {
             BusyIndicator {
                 anchors.centerIn: parent
                 running: parent.status === Image.Loading
+            }
+        }
+        header: Map {
+            id: hotelLocation
+
+            height: 300 * Theme.pixelRatio
+            width: 400 * Theme.pixelRatio
+            gesture.enabled: false
+            plugin: mapPlugin
+            center: QtPositioning.coordinate(hotelData.location.lat, hotelData.location.lon)
+            zoomLevel: 14.0
+
+            MapQuickItem {
+                id: hotelPointer
+
+                anchorPoint.x: locationPointer.width / 2
+                anchorPoint.y: locationPointer.height
+
+                coordinate: parent.center
+                sourceItem: IconButton {
+                    id: locationPointer
+
+                    z: 3
+                    icon.source: "image://theme/icon-m-whereami"
+                }
+
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("MapPage.qml"), {latitude: hotelData.location.lat, longitude: hotelData.location.lon})
+                }
+
+            }
+
+            Component.onCompleted: {
+                zoomLevel = 16.0
             }
         }
     }

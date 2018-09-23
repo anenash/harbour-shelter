@@ -14,6 +14,14 @@
         <source>Hotels list</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>No hotels found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please, change dates or hotel</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SearchDialog</name>
@@ -27,6 +35,18 @@
     </message>
     <message>
         <source>hotels count: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search locations by coordinates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No hotels/locations found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tap on search field on top of the page</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -128,6 +148,10 @@
     </message>
     <message>
         <source>Search by coordinates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search history</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

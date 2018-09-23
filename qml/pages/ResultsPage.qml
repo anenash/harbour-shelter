@@ -7,9 +7,12 @@ import "../components"
 import "../components/Utils.js" as Utils
 
 Page {
+    property string searchType: "city"
     property string searchUrl
     property string filterBy
     property string sortBy
+
+    property string hotelTitle: ""
 
     QtObject {
         id: internal
@@ -35,7 +38,13 @@ Page {
     Component.onCompleted: {
         if (searchUrl) {
             indicator.running = true
-            Utils.performRequest("GET", searchUrl, getSearchId)
+            console.log("searchType", searchType)
+            if (searchType === "city") {
+                Utils.performRequest("GET", searchUrl, getSearchId)
+            } else {
+                internal.url = searchUrl
+                Utils.performRequest("GET", internal.url, getHotelInfo)
+            }
         }
     }
 
@@ -45,7 +54,6 @@ Page {
 
     function getSearchId(data) {
         if (data !== "error") {
-//            console.log(data)
             var parsed = JSON.parse(data)
             if (parsed.status === "ok") {
 /*
@@ -53,7 +61,7 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
 */
                 //"YourToken:YourMarker:limit:offset:roomsCount:searchId:sortAsc:sortBy".
                 var t = {}
-                t.limit = 0
+                t.limit = 25
                 t.offset = 0
                 t.sortBy = filterBy
                 t.roomsCount = 0
@@ -79,10 +87,9 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
 
     function getResults(data) {
         if (data !== "error") {
-//            console.log(data)
+            timer.stop()
             var parsed = JSON.parse(data)
             if (parsed.status === "ok") {
-                timer.stop()
                 hotels.clear()
                 for (var i in parsed.result) {
                     hotels.append({info: parsed.result[i], rooms: JSON.stringify(parsed.result[i].rooms)})
@@ -95,7 +102,23 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
 
             indicator.running = false
         } else {
-            timer.start()
+            if (searchType === "city") {
+                timer.start()
+            }
+        }
+    }
+
+    function getHotelInfo(data) {
+        if (data !== "error") {
+            var parsed = JSON.parse(data)
+            if (parsed.status === "ok") {
+                hotels.clear()
+                if (parsed.result.length > 0) {
+                    hotels.append({info: parsed.result[0], rooms: JSON.stringify(parsed.result[0].rooms)})
+                    pageStack.replace(Qt.resolvedUrl("HotelInfoPage.qml"), {"hotelData": hotels.get(0).info, "hotelRooms": hotels.get(0).rooms})
+                }
+                indicator.running = false
+            }
         }
     }
 
@@ -105,7 +128,7 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
         PageHeader {
             id: pageHeader
 
-            title: qsTr("Hotels list")
+            title: searchType === "city" ? qsTr("Hotels list") : hotelTitle
         }
 
         BusyIndicator {
@@ -127,6 +150,18 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
                 hotelData: info
                 hotelRooms: rooms
                 currency: database.currency
+            }
+
+            footer: Button {
+                visible: searchType === "city" && hotels.count > 0 && !indicator.running
+                width: parent.width
+                text: "Load more hotels"
+            }
+
+            ViewPlaceholder {
+                enabled: hotels.count == 0 && !indicator.running
+                text: qsTr("No hotels found")
+                hintText: qsTr("Please, change dates or hotel")
             }
         }
 

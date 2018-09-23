@@ -15,6 +15,10 @@ Page {
 
     property real latitude: 59.91
     property real longitude: 10.75
+    property real lat: 59.91
+    property real lon: 10.75
+
+    signal setLocation(real lat, real lon)
 
     Component.onCompleted: {
         map.center = QtPositioning.coordinate(root.latitude, root.longitude)
@@ -24,9 +28,17 @@ Page {
         hotelStars.average  = 3.0
     }
 
+    SearchDialog {
+        id: searchDialog
+    }
+
     Ratings {
         id: hotelStars
         maximum: 5.0
+    }
+
+    Location {
+        id: hotelLocation
     }
 
     Plugin {
@@ -53,8 +65,7 @@ Page {
                 id: locationPointer
 
                 z: 3
-//                icon.source: "image://theme/icon-m-whereami"
-                icon.source: "../images/hotelPointer.png"
+                icon.source: "image://theme/icon-m-whereami"
 
                 onClicked: {
                     console.log("hotel pointer", map.center, "stars", hotelStars.average)
@@ -73,6 +84,7 @@ Page {
             }
             visible: false
             coordinate: map.center
+
             anchorPoint.x: image.width / 2
             anchorPoint.y: image.height / 2
         }
@@ -80,6 +92,7 @@ Page {
         MouseArea {
             anchors.fill: parent
             onPressAndHold: {
+                hotelLocation.coordinate = map.toCoordinate(Qt.point(mouse.x,mouse.y))
                 marker.coordinate = map.toCoordinate(Qt.point(mouse.x,mouse.y))
                 marker.visible = true
             }
@@ -114,8 +127,12 @@ Page {
                 text: "Back"
 
                 onClicked: {
+                    root.lat = hotelLocation.coordinate.latitude
+                    root.lon = hotelLocation.coordinate.longitude
+                    root.setLocation(hotelLocation.coordinate.latitude, hotelLocation.coordinate.longitude)
                     root.backNavigation = true
                     pageStack.pop()
+//                    pageStack.replace(searchDialog, {requestType: "coordinates", lat: root.lat, lon: root.lon})
                 }
             }
         }

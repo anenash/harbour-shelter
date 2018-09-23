@@ -14,34 +14,17 @@ Page {
     }
 
     Component.onCompleted: {
-        /*
-http://yasen.hotellook.com/tp/public/widget_location_dump.json?currency=rub&language=ru&limit=5&id=12209&type=popularity&check_in=2017-02-02&check_out=2017-02-17&token=Укажите_здесь_ваш_токен
-*/
-//        var checkin = Utils.getFullDate(new Date())
-//        var checkout = Utils.getFullDate(Utils.setCheckoutDate(new Date(), "2"))
-//        var lang = database.language.substring(0,2)
-//        var cur = database.currency.toLowerCase()
-//        var url = "http://yasen.hotellook.com/tp/public/widget_location_dump.json?"
-//        url += "currency=" + cur
-//        url += "&language=" + lang
-//        url += "&limit=10"
-//        url += "&id=6557"
-//        url += "&type=popularity"
-//        url += "&check_in=" + checkin
-//        url += "&check_out=" + checkout
-//        url += "&token=" + Utils.token
-
-//        Utils.performRequest("GET", url, getData)
+        getData()
     }
 
 
-    function getData(data) {
+    function getData() {
 
-        if (data !== "error") {
-//            console.log(data)
-            var parsed = JSON.parse(data)
-            for (var i in parsed.popularity) {
-                favoritesModel.append(parsed.popularity[i])
+        var fav = database.getFavorites()
+        if (fav.length > 0) {
+            for (var i in fav) {
+                var parsed = JSON.parse(fav[i])
+                favoritesModel.append(parsed)
             }
         }
     }
@@ -94,25 +77,12 @@ http://yasen.hotellook.com/tp/public/widget_location_dump.json?currency=rub&lang
                     pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
                 }
             }
-//            MenuItem {
-//                text: qsTr("Search")
-//                onClicked: {
-//                    pageStack.push(Qt.resolvedUrl("SearchPage.qml"))
-//                }
-//            }
-            MenuItem {
-                text: "Map"
-                onClicked: {
-                    pageStack.push(Qt.resolvedUrl("MapPage.qml"))
-                }
-            }
         }
 
         ListView {
             id: searchTypes
 
             anchors.top: head.bottom
-//            anchors { top: head.bottom; left: parent.left; right: parent.right/*; bottom: parent.bottom*/}
             height: (Theme.itemSizeMedium + Theme.paddingMedium) * searchTypesList.count
             width: parent.width
             spacing: Theme.paddingMedium
@@ -131,34 +101,31 @@ http://yasen.hotellook.com/tp/public/widget_location_dump.json?currency=rub&lang
         }
 
         //    *** FAVORITES ***
-//        SilicaListView {
-//            id: favoritesListView
+        SilicaListView {
+            id: favoritesListView
 
-//            anchors { top: head.bottom; left: parent.left; right: parent.right; bottom: parent.bottom}
+            anchors { top: searchTypes.bottom; left: parent.left; right: parent.right; bottom: parent.bottom}
 
-//            spacing: Theme.paddingSmall
-//            clip: true
-//            //                visible: !busyIndicator.running
-//            header: SectionHeader {
-//                text: qsTr("Search history")
-//            }
+            spacing: Theme.paddingSmall
+            clip: true
+            //                visible: !busyIndicator.running
+            header: SectionHeader {
+                text: qsTr("Search history")
+            }
 
-//            model: favoritesModel
-//            delegate: HotelInfoDelegate {
-//                hotelData: favoritesModel.get(index)
-//            }
-//            footer: ListItem {
-//                contentHeight: Theme.itemSizeMedium
-//                Label {
-//                    anchors.centerIn: parent
-//                    text: qsTr("New search")
-//                }
-//                onClicked: {
-//                    pageStack.push(Qt.resolvedUrl("SearchPage.qml"))
-//                }
-//            }
+            model: favoritesModel
+            delegate: HotelInfoDelegate {
+                enabled: false
+                hotelData: favoritesModel.get(index)
+            }
 
-//        }
+            ViewPlaceholder {
+                enabled: favoritesModel.count == 0
+                text: "No items yet"
+                hintText: "Search hotel to add items"
+            }
+
+        }
 
     }
 }

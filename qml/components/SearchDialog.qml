@@ -13,6 +13,13 @@ Dialog {
 
     property string requestType: "city"
 
+    QtObject {
+        id: internal
+
+        property real lat: 59.91
+        property real lon: 10.75
+    }
+
     property variant result: ({})
 
     function getInfo(data) {
@@ -20,12 +27,19 @@ Dialog {
             var parsed = JSON.parse(data)
             if (parsed.status === "ok") {
                 if (requestType === "city") {
-                for (var i in parsed.results.locations) {
-                    locationsModel.append(parsed.results.locations[i])
-                }
-                } else {
+                    for (var i in parsed.results.locations) {
+                        locationsModel.append(parsed.results.locations[i])
+                    }
+                } else if (requestType === "hotel") {
                     for (var i in parsed.results.hotels) {
                         locationsModel.append(parsed.results.hotels[i])
+                    }
+                } else {
+                    for (var i in parsed.results.locations) {
+                        locationsModel.append(parsed.results.locations[i])
+                    }
+                    for (var j in parsed.results.hotels) {
+                        locationsModel.append(parsed.results.hotels[j])
                     }
                 }
 
@@ -45,23 +59,8 @@ Dialog {
         }
     }
 
-    Database {
-        id: database
-    }
-
-    ListModel {
-        id: locationsModel
-    }
-
-    BusyIndicator {
-        id: indicator
-
-        anchors.centerIn: parent
-        size: BusyIndicatorSize.Large
-    }
-
-    Column {
-        width: parent.width
+    Component {
+        id: searchFieldComponent
 
         SearchField {
             id: searchField
@@ -90,6 +89,58 @@ Dialog {
                     Utils.performRequest("GET", url, getInfo)
                 }
             }
+        }
+    }
+
+    Component {
+        id: coordinatesSearchComponent
+
+        IconTextSwitch {
+            automaticCheck: false
+            text: qsTr('Search locations by coordinates')
+            icon.source: "image://theme/icon-m-gps"
+            onClicked: {
+                var coord = pageStack.push(Qt.resolvedUrl("../pages/MapPage.qml"), {latitude: internal.lat, longitude: internal.lon})
+                coord.setLocation.connect(function() {
+                    indicator.running = true
+                    internal.lat = coord.lat
+                    internal.lon = coord.lon
+                    locationsListView.currentIndex = -1
+                    locationsModel.clear()
+                    var lang = database.language.substring(0,2)
+                    //"query=prague&lang=en&lookFor=both&limit=10"
+                    var url = Utils.locations + "lang=" + lang + "&lookFor=hotel" + "&limit=20&query=" + internal.lat + "," + internal.lon
+                    Utils.performRequest("GET", url, getInfo)
+                })
+            }
+        }
+    }
+
+    Database {
+        id: database
+    }
+
+    ListModel {
+        id: locationsModel
+    }
+
+    BusyIndicator {
+        id: indicator
+
+        anchors.centerIn: parent
+        size: BusyIndicatorSize.Large
+    }
+
+    Component.onCompleted: {
+        console.log("requestType", requestType)
+    }
+
+    Column {
+        width: parent.width
+
+        Loader {
+            width: parent.width
+            sourceComponent: requestType === "coordinates"? coordinatesSearchComponent : searchFieldComponent
         }
 
         SilicaListView {
@@ -123,7 +174,7 @@ Dialog {
                     anchors.verticalCenterOffset: -Theme.paddingMedium
                     anchors.left: _locationType.right
                     anchors.leftMargin: Theme.paddingMedium
-                    text: fullName
+                    text: requestType !== "coordinates" ? fullName : name
                 }
                 Text {
                     anchors.top: locationFullName.bottom
@@ -131,7 +182,7 @@ Dialog {
                     anchors.left: _locationType.right
                     anchors.leftMargin: Theme.paddingMedium
                     color: Theme.secondaryColor
-                    text: requestType === "city" ?qsTr("hotels count: ") + hotelsCount:""
+                    text: requestType === "city" ? qsTr("hotels count: ") + hotelsCount : ""
                 }
                 Separator {
 
@@ -140,15 +191,20 @@ Dialog {
                 onClicked: {
                     locationsListView.currentIndex = index
                     result.location = location
-                    result.fullName = fullName
+                    result.fullName = requestType !== "coordinates" ? fullName : name
                     result.id = id
                     root.canAccept = true
                     root.accept()
                 }
             }
+
+            ViewPlaceholder {
+                enabled: locationsModel.count == 0 && !indicator.running
+                text: qsTr("No hotels/locations found")
+                hintText: qsTr("Tap on search field on top of the page")
+            }
         }
     }
-
 
     onAccepted: {
             return result
