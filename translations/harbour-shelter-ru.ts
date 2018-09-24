@@ -12,18 +12,18 @@
 <context>
     <name>ResultsPage</name>
     <message>
-        <location filename="../qml/pages/ResultsPage.qml" line="96"/>
-        <location filename="../qml/pages/ResultsPage.qml" line="131"/>
+        <location filename="../qml/pages/ResultsPage.qml" line="129"/>
+        <location filename="../qml/pages/ResultsPage.qml" line="168"/>
         <source>Hotels list</source>
         <translation>Список отелей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ResultsPage.qml" line="163"/>
+        <location filename="../qml/pages/ResultsPage.qml" line="213"/>
         <source>No hotels found</source>
         <translation>Отели не найдены</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ResultsPage.qml" line="164"/>
+        <location filename="../qml/pages/ResultsPage.qml" line="214"/>
         <source>Please, change dates or hotel</source>
         <translation>Пожалуйста, поменяйте дату или отель</translation>
     </message>

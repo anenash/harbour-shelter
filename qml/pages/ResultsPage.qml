@@ -18,6 +18,9 @@ Page {
         id: internal
 
         property string url: ""
+        property string searchId
+        property int resultsLimit: 25
+        property int offset: 0
     }
 
     Database {
@@ -61,12 +64,14 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
 */
                 //"YourToken:YourMarker:limit:offset:roomsCount:searchId:sortAsc:sortBy".
                 var t = {}
-                t.limit = 25
-                t.offset = 0
+                t.limit = internal.resultsLimit
+                t.offset = internal.offset
                 t.sortBy = filterBy
                 t.roomsCount = 0
                 t.searchId = parsed.searchId
                 t.sortAsc = sortBy
+
+                internal.searchId = parsed.searchId
 
                 var signature = Utils.createMD5(t)
 
@@ -85,12 +90,40 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
         }
     }
 
+    function getNextResults() {
+        headIndicator.running = true
+        internal.offset += 1
+        var t = {}
+        t.limit = 25
+        t.offset = internal.offset
+        t.sortBy = filterBy
+        t.roomsCount = 0
+        t.searchId = internal.searchId
+        t.sortAsc = sortBy
+
+        var signature = Utils.createMD5(t)
+
+        internal.url = Utils.baseUrl + "/api/v2/search/getResult.json?"
+        internal.url += "searchId=" + t.searchId
+        internal.url += "&limit=" + t.limit
+        internal.url += "&offset=" + t.offset
+        internal.url += "&sortBy=" + t.sortBy
+        internal.url += "&roomsCount=" + t.roomsCount
+        internal.url += "&sortAsc=" + t.sortAsc
+        internal.url += "&marker=" + Utils.marker
+        internal.url += "&signature=" + signature
+
+        Utils.performRequest("GET", internal.url, getResults)
+    }
+
     function getResults(data) {
         if (data !== "error") {
             timer.stop()
             var parsed = JSON.parse(data)
             if (parsed.status === "ok") {
-                hotels.clear()
+                if (internal.offset == 0) {
+                    hotels.clear()
+                }
                 for (var i in parsed.result) {
                     hotels.append({info: parsed.result[i], rooms: JSON.stringify(parsed.result[i].rooms)})
                     pageHeader.title = qsTr("Hotels list") + " (" + hotels.count + ")"
@@ -99,7 +132,7 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
                 message.text = parsed.message
                 message.enabled = true
             }
-
+            headIndicator.running = false
             indicator.running = false
         } else {
             if (searchType === "city") {
@@ -122,6 +155,10 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
         }
     }
 
+    function getNextButtonEnabled() {
+        return hotels.count >= (internal.resultsLimit * (internal.offset + 1))
+    }
+
     SilicaFlickable {
         anchors.fill: parent
 
@@ -129,6 +166,15 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
             id: pageHeader
 
             title: searchType === "city" ? qsTr("Hotels list") : hotelTitle
+
+            BusyIndicator {
+                id: headIndicator
+
+                anchors.left: parent.left
+                anchors.leftMargin: Theme.horizontalPageMargin
+                anchors.verticalCenter: parent.verticalCenter
+                size: BusyIndicatorSize.Small
+            }
         }
 
         BusyIndicator {
@@ -153,9 +199,13 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
             }
 
             footer: Button {
-                visible: searchType === "city" && hotels.count > 0 && !indicator.running
+                visible: searchType === "city" && !indicator.running && getNextButtonEnabled()
                 width: parent.width
                 text: "Load more hotels"
+
+                onClicked: {
+                    getNextResults()
+                }
             }
 
             ViewPlaceholder {
