@@ -30,16 +30,9 @@ Dialog {
                     for (var i in parsed.results.locations) {
                         locationsModel.append(parsed.results.locations[i])
                     }
-                } else if (requestType === "hotel") {
+                } else {
                     for (var i in parsed.results.hotels) {
                         locationsModel.append(parsed.results.hotels[i])
-                    }
-                } else {
-                    for (var i in parsed.results.locations) {
-                        locationsModel.append(parsed.results.locations[i])
-                    }
-                    for (var j in parsed.results.hotels) {
-                        locationsModel.append(parsed.results.hotels[j])
                     }
                 }
 

@@ -8,21 +8,13 @@ import "Utils.js" as Utils
 ListItem {
     property variant hotelData: ({})
     property variant hotelRooms: ([])
-    property string currency: ""
 
     contentHeight: Theme.itemSizeLarge
     width: parent.width
 
-//    Label {
-//        id: _hotelStars
-
-//        anchors.left: parent.left
-//        anchors.leftMargin: Theme.horizontalPageMargin
-//        anchors.verticalCenter: parent.verticalCenter
-//        width: parent.width * 0.05
-
-//        text: hotelData.stars
-//    }
+    Database {
+        id: database
+    }
 
     Image {
         id: _hotelStars
@@ -57,7 +49,7 @@ ListItem {
         color: Theme.secondaryHighlightColor
         font.pixelSize: Theme.fontSizeTiny
 
-        text: "Rating: " + hotelData.rating
+        text: qsTr("Rating: ") + hotelData.rating
     }
 
     Text {
@@ -69,7 +61,7 @@ ListItem {
         color: Theme.secondaryHighlightColor
         font.pixelSize: Theme.fontSizeTiny
 
-        text: "from center: " + hotelData.distance + " km"
+        text: qsTr("from center: ") + hotelData.distance + " km"
     }
 
     Text {
@@ -82,11 +74,10 @@ ListItem {
         width: parent.width * 0.15
         color: Theme.secondaryColor
 
-        text: "Price from\n" + hotelData.price + " " + currency
+        text: qsTr("Price from\n") + hotelData.price + " " + database.currency
     }
 
     onClicked: {
-//        console.log(hotelRooms)
         pageStack.push(Qt.resolvedUrl("../pages/HotelInfoPage.qml"), {"hotelData": hotelData, "hotelRooms": hotelRooms})
     }
 }

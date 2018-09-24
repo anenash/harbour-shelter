@@ -35,12 +35,6 @@ Page {
     }
 
     Component.onCompleted: {
-//        console.log(JSON.stringify(hotelRooms))
-//        console.log(JSON.stringify(hotelData))
-//        console.log(JSON.stringify(hotelData.rooms))
-
-//        console.log(JSON.stringify(hotelData.amenities))
-
         database.storeFavorite(hotelData.id, JSON.stringify(hotelData))
 
         var r = JSON.parse(hotelRooms)
@@ -187,7 +181,7 @@ Page {
                 anchors.leftMargin: Theme.horizontalPageMargin
                 width: parent.width
                 color: Theme.secondaryHighlightColor
-                text: "Price: " + total + " (one nigth: " + price + ")"
+                text: "Price: " + total + " " + database.currency + " (one nigth: " + price + " " + database.currency + ")"
             }
 
             Separator {

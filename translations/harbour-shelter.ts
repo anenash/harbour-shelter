@@ -9,6 +9,22 @@
     </message>
 </context>
 <context>
+    <name>HotelInfoDelegate</name>
+    <message>
+        <source>Rating: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>from center: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Price from
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ResultsPage</name>
     <message>
         <source>Hotels list</source>
@@ -98,6 +114,10 @@
     </message>
     <message>
         <source>Nigths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hotel: </source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -10,6 +10,26 @@
     </message>
 </context>
 <context>
+    <name>HotelInfoDelegate</name>
+    <message>
+        <location filename="../qml/components/HotelInfoDelegate.qml" line="52"/>
+        <source>Rating: </source>
+        <translation>Рейтинг: </translation>
+    </message>
+    <message>
+        <location filename="../qml/components/HotelInfoDelegate.qml" line="64"/>
+        <source>from center: </source>
+        <translation>от центра: </translation>
+    </message>
+    <message>
+        <location filename="../qml/components/HotelInfoDelegate.qml" line="77"/>
+        <source>Price from
+</source>
+        <translation>Цена от
+</translation>
+    </message>
+</context>
+<context>
     <name>ResultsPage</name>
     <message>
         <location filename="../qml/pages/ResultsPage.qml" line="129"/>
@@ -18,12 +38,12 @@
         <translation>Список отелей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ResultsPage.qml" line="213"/>
+        <location filename="../qml/pages/ResultsPage.qml" line="212"/>
         <source>No hotels found</source>
         <translation>Отели не найдены</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ResultsPage.qml" line="214"/>
+        <location filename="../qml/pages/ResultsPage.qml" line="213"/>
         <source>Please, change dates or hotel</source>
         <translation>Пожалуйста, поменяйте дату или отель</translation>
     </message>
@@ -31,32 +51,32 @@
 <context>
     <name>SearchDialog</name>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="70"/>
+        <location filename="../qml/components/SearchDialog.qml" line="63"/>
         <source>Search locations:</source>
         <translation>Поиск локаций:</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="71"/>
+        <location filename="../qml/components/SearchDialog.qml" line="64"/>
         <source>Search hotels:</source>
         <translation>Поиск отелей:</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="100"/>
+        <location filename="../qml/components/SearchDialog.qml" line="93"/>
         <source>Search locations by coordinates</source>
         <translation>Поиск локаций по координатам</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="185"/>
+        <location filename="../qml/components/SearchDialog.qml" line="178"/>
         <source>hotels count: </source>
         <translation>Количество отелей:</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="203"/>
+        <location filename="../qml/components/SearchDialog.qml" line="196"/>
         <source>No hotels/locations found</source>
-        <translation>Отелей.локаций не найдено</translation>
+        <translation>Отелей/локаций не найдено</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="204"/>
+        <location filename="../qml/components/SearchDialog.qml" line="197"/>
         <source>Tap on search field on top of the page</source>
         <translation>Нажмите на поле поиска в верху страницы</translation>
     </message>
@@ -76,7 +96,12 @@
     <message>
         <location filename="../qml/pages/SearchPage.qml" line="133"/>
         <source>Location: </source>
-        <translation>Место:</translation>
+        <translation>Место: </translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SearchPage.qml" line="133"/>
+        <source>Hotel: </source>
+        <translation>Отель: </translation>
     </message>
     <message>
         <location filename="../qml/pages/SearchPage.qml" line="134"/>

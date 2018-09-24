@@ -130,7 +130,7 @@ Dialog {
             ValueButton {
                 id: locationField
 
-                label: qsTr("Location: ")
+                label: searchType !== "hotel"?qsTr("Location: "):qsTr("Hotel: ")
                 value: qsTr("Select")
 
                 onClicked: {

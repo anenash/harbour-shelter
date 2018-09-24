@@ -195,7 +195,6 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
             delegate: HotelInfoDelegate {
                 hotelData: info
                 hotelRooms: rooms
-                currency: database.currency
             }
 
             footer: Button {

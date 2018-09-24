@@ -106,6 +106,8 @@ Page {
             anchors.bottomMargin: Theme.paddingMedium
             sourceItem: Button {
                 text: "Reset"
+                color: "black"
+                opacity: 0.7
 
                 onClicked: {
                     marker.visible = false
@@ -121,15 +123,19 @@ Page {
         MapQuickItem {
             anchors.left: parent.left
             anchors.bottom: parent.bottom
-            anchors.rightMargin: Theme.horizontalPageMargin
+            anchors.leftMargin: Theme.horizontalPageMargin
             anchors.bottomMargin: Theme.paddingMedium
             sourceItem: Button {
                 text: "Back"
+                color: "black"
+                opacity: 0.7
 
                 onClicked: {
-                    root.lat = hotelLocation.coordinate.latitude
-                    root.lon = hotelLocation.coordinate.longitude
-                    root.setLocation(hotelLocation.coordinate.latitude, hotelLocation.coordinate.longitude)
+                    if (marker.visible) {
+                        root.lat = hotelLocation.coordinate.latitude
+                        root.lon = hotelLocation.coordinate.longitude
+                        root.setLocation(hotelLocation.coordinate.latitude, hotelLocation.coordinate.longitude)
+                    }
                     root.backNavigation = true
                     pageStack.pop()
 //                    pageStack.replace(searchDialog, {requestType: "coordinates", lat: root.lat, lon: root.lon})
