@@ -40,7 +40,8 @@ DISTFILES += qml/harbour-shelter.qml \
     qml/pages/StartPage.qml \
     qml/components/FavoritesDelegate.qml \
     qml/pages/SearchHotelPage.qml \
-    qml/pages/MapPage.qml
+    qml/pages/MapPage.qml \
+    qml/components/RoomInfoDelegate.qml
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 

@@ -25,6 +25,25 @@
     </message>
 </context>
 <context>
+    <name>HotelInfoPage</name>
+    <message>
+        <source>Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Distance from center:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hotels did not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please, change check-in date</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ResultsPage</name>
     <message>
         <source>Hotels list</source>
@@ -36,6 +55,25 @@
     </message>
     <message>
         <source>Please, change dates or hotel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RoomInfoDelegate</name>
+    <message>
+        <source>Reserve a room</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Agency: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>per nigth: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Total: </source>
         <translation type="unfinished"></translation>
     </message>
 </context>

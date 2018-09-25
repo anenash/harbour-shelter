@@ -160,14 +160,19 @@ Dialog {
                     z: 3
                     icon.source: "image://theme/icon-m-whereami"
                 }
-                Label {
+                Text {
                     id: locationFullName
 
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.verticalCenterOffset: -Theme.paddingMedium
                     anchors.left: _locationType.right
                     anchors.leftMargin: Theme.paddingMedium
+                    anchors.right: parent.right
+                    anchors.rightMargin: Theme.paddingMedium
                     text: requestType !== "coordinates" ? fullName : name
+                    color: Theme.primaryColor
+                    font.pixelSize: Theme.fontSizeSmall
+                    wrapMode: Text.WordWrap
                 }
                 Text {
                     anchors.top: locationFullName.bottom

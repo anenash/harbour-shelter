@@ -130,23 +130,24 @@ Page {
         id: detailAddress
 
         anchors.top: hotelsSlide.bottom
-        anchors.topMargin: Theme.paddingMedium
+        anchors.topMargin: Theme.paddingSmall
         width: parent.width
         leftMargin: Theme.paddingSmall
-        label: "Address:"
+        label: qsTr("Address:")
         value: hotelData.address
+    }
+    DetailItem {
+        id: fromCenter
 
-        MouseArea {
-            anchors.fill: parent
-
-            onClicked: {
-                pageStack.push(Qt.resolvedUrl("MapPage.qml"), {latitude: hotelData.location.lat, longitude: hotelData.location.lon})
-            }
-        }
+        anchors.top: detailAddress.bottom
+        width: parent.width
+        leftMargin: Theme.paddingSmall
+        label: qsTr("Distance from center:")
+        value: hotelData.distance
     }
 
     ListView {
-        anchors.top: detailAddress.bottom
+        anchors.top: fromCenter.bottom
         anchors.topMargin: Theme.paddingMedium
         anchors.bottom: parent.bottom
         width: parent.width
@@ -154,49 +155,14 @@ Page {
 
         model: rooms
 
-        delegate: ListItem {
-            contentHeight: Theme.itemSizeLarge
-            width: parent.width
-
-            Text {
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.leftMargin: Theme.horizontalPageMargin
-                width: parent.width
-                color: Theme.secondaryHighlightColor
-                text: "Agency: " + agencyName
-            }
-            Text {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
-                anchors.leftMargin: Theme.horizontalPageMargin
-                width: parent.width
-                color: Theme.secondaryHighlightColor
-                wrapMode: Text.WordWrap
-                text: desc
-            }
-            Text {
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.leftMargin: Theme.horizontalPageMargin
-                width: parent.width
-                color: Theme.secondaryHighlightColor
-                text: "Price: " + total + " " + database.currency + " (one nigth: " + price + " " + database.currency + ")"
-            }
-
-            Separator {
-                width: parent.width
-            }
-
-            onClicked: {
-                pageStack.push(Qt.resolvedUrl("WebPage.qml"), {"pageUrl": fullBookingURL})
-            }
+        delegate: RoomInfoDelegate {
+            roomData: rooms.get(index)
         }
     }
 
     ViewPlaceholder {
         enabled: rooms.count == 0
-        text: "Hotels did not found"
-        hintText: "Please, change check-in date"
+        text: qsTr("Hotels did not found")
+        hintText: qsTr("Please, change check-in date")
     }
 }
