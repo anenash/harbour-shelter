@@ -302,11 +302,11 @@ Dialog {
                 visible: searchType === "city"
 
                 menu: ContextMenu {
-                    MenuItem { text: "name" }
-                    MenuItem { text: "popularity" }
-                    MenuItem { text: "price" }
-                    MenuItem { text: "rating" }
-                    MenuItem { text: "stars" }
+                    MenuItem { text: qsTr("name") }
+                    MenuItem { text: qsTr("popularity") }
+                    MenuItem { text: qsTr("price") }
+                    MenuItem { text: qsTr("rating") }
+                    MenuItem { text: qsTr("stars") }
                 }
 
                 onCurrentIndexChanged: {
