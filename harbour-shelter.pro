@@ -21,27 +21,14 @@ SOURCES += src/harbour-shelter.cpp \
 
 DISTFILES += qml/harbour-shelter.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/SearchPage.qml \
-    qml/pages/AboutPage.qml \
-    qml/pages/SettingsPage.qml \
-    qml/pages/HotelInfoPage.qml \
+    qml/pages/*.qml \
     rpm/harbour-shelter.changes.in \
     rpm/harbour-shelter.changes.run.in \
     rpm/harbour-shelter.spec \
     rpm/harbour-shelter.yaml \
     translations/*.ts \
     harbour-shelter.desktop \
-    qml/components/Database.qml \
-    qml/components/HotelInfoDelegate.qml \
-    qml/components/Utils.js \
-    qml/components/SearchDialog.qml \
-    qml/pages/ResultsPage.qml \
-    qml/pages/WebPage.qml \
-    qml/pages/StartPage.qml \
-    qml/components/FavoritesDelegate.qml \
-    qml/pages/SearchHotelPage.qml \
-    qml/pages/MapPage.qml \
-    qml/components/RoomInfoDelegate.qml
+    qml/components/*
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -54,6 +41,8 @@ CONFIG += sailfishapp_i18n
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/harbour-shelter-ru.ts
+TRANSLATIONS += translations/harbour-shelter-sv.ts
+
 
 HEADERS += \
     src/apputils.h
