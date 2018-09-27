@@ -8,6 +8,9 @@ Item {
     property string language
     property string currency
 
+    property bool showHints
+    property int  openIn
+
     Component.onCompleted: {
         initDatabase()
 
@@ -34,6 +37,20 @@ Item {
         if (!srt) {
             storeData("sort", 0, "")
         }
+
+        var hnt = getValue("hints")
+        if (!hnt) {
+            hnt = true
+            storeData("hints", 0, hnt)
+        }
+        showHints = hnt
+
+        var opnLnk = getValue("links")
+        if (!opnLnk) {
+            opnLnk = 0
+            storeData("hints", 0, opnLnk)
+        }
+        openIn = opnLnk
     }
 
     QtObject {

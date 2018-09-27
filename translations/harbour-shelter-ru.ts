@@ -67,29 +67,29 @@
     </message>
     <message>
         <location filename="../qml/pages/ResultsPage.qml" line="213"/>
-        <source>Please, change dates or hotel</source>
+        <source>Please, change date or hotel</source>
         <translation>Пожалуйста, поменяйте дату или отель</translation>
     </message>
 </context>
 <context>
     <name>RoomInfoDelegate</name>
     <message>
-        <location filename="../qml/components/RoomInfoDelegate.qml" line="32"/>
+        <location filename="../qml/components/RoomInfoDelegate.qml" line="36"/>
         <source>Agency: </source>
         <translation>Агенство: </translation>
     </message>
     <message>
-        <location filename="../qml/components/RoomInfoDelegate.qml" line="46"/>
+        <location filename="../qml/components/RoomInfoDelegate.qml" line="50"/>
         <source>per nigth: </source>
         <translation>за ночь: </translation>
     </message>
     <message>
-        <location filename="../qml/components/RoomInfoDelegate.qml" line="46"/>
+        <location filename="../qml/components/RoomInfoDelegate.qml" line="50"/>
         <source>Total: </source>
         <translation>Всего: </translation>
     </message>
     <message>
-        <location filename="../qml/components/RoomInfoDelegate.qml" line="56"/>
+        <location filename="../qml/components/RoomInfoDelegate.qml" line="60"/>
         <source>Reserve a room</source>
         <translation>Забронировать номер</translation>
     </message>
@@ -107,22 +107,22 @@
         <translation>Поиск отелей:</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="93"/>
+        <location filename="../qml/components/SearchDialog.qml" line="94"/>
         <source>Search locations by coordinates</source>
         <translation>Поиск локаций по координатам</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="183"/>
+        <location filename="../qml/components/SearchDialog.qml" line="186"/>
         <source>hotels count: </source>
         <translation>Количество отелей:</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="201"/>
+        <location filename="../qml/components/SearchDialog.qml" line="204"/>
         <source>No hotels/locations found</source>
         <translation>Отелей/локаций не найдено</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="202"/>
+        <location filename="../qml/components/SearchDialog.qml" line="205"/>
         <source>Tap on search field on top of the page</source>
         <translation>Нажмите на поле поиска в верху страницы</translation>
     </message>
@@ -199,29 +199,54 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="29"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="30"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="33"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="34"/>
         <source>Language:</source>
         <translation>Язык:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="39"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="40"/>
         <source>Language of the search result</source>
         <translation>Язык вывода результатов поиска</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="86"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="87"/>
         <source>Currency:</source>
         <translation>Валюта:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="93"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="94"/>
         <source>Get results in currency</source>
         <translation>Выводить результаты в</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="199"/>
+        <source>Options</source>
+        <translation>Опции</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="205"/>
+        <source>Open booking link in</source>
+        <translation>Открыть резервирование в</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="209"/>
+        <source>internal webview</source>
+        <translation>встроенном броузере</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="212"/>
+        <source>external browser</source>
+        <translation>внешнем броузере</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="223"/>
+        <source>Show hints</source>
+        <translation>Показать подсказки</translation>
     </message>
 </context>
 <context>

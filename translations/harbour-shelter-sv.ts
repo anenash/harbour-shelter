@@ -55,7 +55,7 @@
         <translation>Inga hotell hittades</translation>
     </message>
     <message>
-        <source>Please, change dates or hotel</source>
+        <source>Please, change date or hotel</source>
         <translation>Ändra datum eller hotell</translation>
     </message>
 </context>
@@ -181,6 +181,26 @@
     <message>
         <source>Settings</source>
         <translation>Inställningar</translation>
+    </message>
+    <message>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open booking link in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show hints</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>internal webview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>external browser</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

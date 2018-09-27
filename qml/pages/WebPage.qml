@@ -13,6 +13,13 @@ Page {
 
         anchors.fill: parent
 
+        header: ProgressBar {
+            minimumValue: 0
+            maximumValue: 100
+            value: webView.loadProgress
+            visible: webView.loading
+        }
+
         url: pageUrl
     }
 }

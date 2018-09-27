@@ -20,6 +20,7 @@ Page {
     Component.onCompleted: {
         lang.currentIndex = database.getValue("language")
         curr.currentIndex = database.getValue("currency")
+        links.currentIndex = database.getValue("links")
     }
 
     Column {
@@ -94,46 +95,137 @@ Page {
 
             menu: ContextMenu {
                 MenuItem {
-                    text: "US dollar"
+                    text: "USD"
                 }
+
                 MenuItem {
-                    text: "EU euro"
+                    text: "EUR"
                 }
+
                 MenuItem {
-                    text: "Rubl"
+                    text: "RUB"
+                }
+
+                MenuItem {
+                    text: "GPB"
+                }
+
+                MenuItem {
+                    text: "AUD"
+                }
+
+                MenuItem {
+                    text: "AZN"
+                }
+
+                MenuItem {
+                    text: "BYR"
+                }
+
+                MenuItem {
+                    text: "CAD"
+                }
+
+                MenuItem {
+                    text: "CHF"
+                }
+
+                MenuItem {
+                    text: "CNY"
+                }
+
+                MenuItem {
+                    text: "EGP"
+                }
+
+                MenuItem {
+                    text: "HKD"
+                }
+
+                MenuItem {
+                    text: "IDR"
+                }
+
+                MenuItem {
+                    text: "INR"
+                }
+
+                MenuItem {
+                    text: "KOK"
+                }
+
+                MenuItem {
+                    text: "KZT"
+                }
+
+                MenuItem {
+                    text: "LTL"
+                }
+
+                MenuItem {
+                    text: "NZD"
+                }
+
+                MenuItem {
+                    text: "PHP"
+                }
+
+                MenuItem {
+                    text: "PKR"
+                }
+
+                MenuItem {
+                    text: "SGD"
+                }
+
+                MenuItem {
+                    text: "THB"
+                }
+
+                MenuItem {
+                    text: "UAH"
+                }
+
+                MenuItem {
+                    text: "ZAR"
                 }
             }
             onCurrentIndexChanged: {
-                var code = Utils.getCurrencyCode(curr.currentIndex)
-                database.storeData("currency", curr.currentIndex, code)
+                database.storeData("currency", curr.currentIndex, curr.currentItem.text)
             }
         }
 
-        /*
-Австралийский доллар (AUD);
-Азербайджанский манат (AZN);
-Белорусский рубль (BYR);
-Канадский доллар (CAD);
-Швейцарский франк (CHF);
-Китайский юань (CNY);
-Египетский фунт (EGP);
-Евро (EUR);
-Фунт стерлингов (GPB);
-Гонконгский доллар (HKD);
-Индонезийская рупия (IDR);
-Индийская рупия (INR);
-Норвежская крона (KOK);
-Казахстанский тенге (KZT);
-Литовский лит (LTL);
-Новозеландский доллар (NZD);
-Филиппинское песо (PHP);
-Пакистанская рупия (PKR);
-Российский рубль (RUB);
-Сингапурский доллар (SGD);
-Тайский бат (THB);
-Украинская гривна (UAH);
-Доллар США (USD);
-Южноафриканский ранд (ZAR).
-*/
+        SectionHeader {
+            text: qsTr("Options")
+        }
+
+        ComboBox {
+            id: links
+
+            label: qsTr("Open booking link in")
+
+            menu: ContextMenu {
+                MenuItem {
+                    text: qsTr("internal webview")
+                }
+                MenuItem {
+                    text: qsTr("external browser")
+                }
+            }
+            onCurrentIndexChanged: {
+                database.storeData("links", links.currentIndex, links.currentIndex)
+            }
+        }
+
+        TextSwitch {
+            id: hints
+
+            text: qsTr("Show hints")
+            checked: database.getName("hints") == "true"
+
+            onCheckedChanged: {
+                database.storeData("hints", 0, checked)
+            }
+        }
     }
 }

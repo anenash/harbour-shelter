@@ -210,7 +210,7 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
             ViewPlaceholder {
                 enabled: hotels.count == 0 && !indicator.running
                 text: qsTr("No hotels found")
-                hintText: qsTr("Please, change dates or hotel")
+                hintText: qsTr("Please, change date or hotel")
             }
         }
 

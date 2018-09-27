@@ -179,10 +179,3 @@ function getLangCode(key) {
     return "en_US"
 }
 
-function getCurrencyCode(key) {
-    var d = ["USD", "EUR", "RUB"]
-    if (key <= d.length) {
-        return d[key]
-    }
-    return "EUR"
-}

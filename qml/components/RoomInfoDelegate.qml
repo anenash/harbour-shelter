@@ -8,6 +8,10 @@ import "Utils.js" as Utils
 ListItem {
     property variant roomData: ({})
 
+    Database {
+        id: database
+    }
+
     contentHeight: Theme.itemSizeHuge
     width: parent.width
 
@@ -55,7 +59,11 @@ ListItem {
         anchors.rightMargin: Theme.horizontalPageMargin
         text: qsTr("Reserve a room")
         onClicked: {
-            pageStack.push(Qt.resolvedUrl("../pages/WebPage.qml"), {"pageUrl": fullBookingURL})
+            if (database.getValue("links") == 0) {
+                pageStack.push(Qt.resolvedUrl("../pages/WebPage.qml"), {"pageUrl": fullBookingURL})
+            } else {
+                Qt.openUrlExternally(fullBookingURL)
+            }
         }
     }
 
@@ -64,6 +72,10 @@ ListItem {
     }
 
     onClicked: {
-        pageStack.push(Qt.resolvedUrl("../pages/WebPage.qml"), {"pageUrl": fullBookingURL})
+        if (database.getValue("links") == 0) {
+            pageStack.push(Qt.resolvedUrl("../pages/WebPage.qml"), {"pageUrl": fullBookingURL})
+        } else {
+            Qt.openUrlExternally(fullBookingURL)
+        }
     }
 }

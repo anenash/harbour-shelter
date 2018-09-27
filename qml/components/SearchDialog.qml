@@ -71,6 +71,7 @@ Dialog {
 
             EnterKey.onClicked: {
                 if(searchField.text.length > 1) {
+                    indicator.visible = true
                     indicator.running = true
                     focus = false
                     locationsListView.currentIndex = -1
@@ -122,9 +123,11 @@ Dialog {
 
         anchors.centerIn: parent
         size: BusyIndicatorSize.Large
+        visible: false
     }
 
     Component.onCompleted: {
+        indicator.running = true
         console.log("requestType", requestType)
     }
 
