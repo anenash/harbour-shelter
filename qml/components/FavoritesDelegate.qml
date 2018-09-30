@@ -6,55 +6,83 @@ import "Utils.js" as Utils
 ListItem {
     id: root
 
-    property string hotelTitle: ""
-    property string hotelLocation: ""
-    property string hotelStars: "0"
-    property string fromCenter: ""
-    property string hotelId: ""
-    property string locationId: ""
+    property variant hotelData: ({})
 
+    contentHeight: Theme.itemSizeLarge
 
-    contentHeight: Theme.itemSizeHuge
-
-    Text {
-        anchors.left: parent.left
-        anchors.leftMargin: Theme.horizontalPageMargin
-        anchors.right: stars.left
-        anchors.top: parent.top
-
-        font.pixelSize: Theme.fontSizeExtraSmall
-        font.bold: true
-        color: Theme.primaryColor
-
-        text: hotelTitle
-    }
-
-    Text {
-        anchors.left: parent.left
-        anchors.leftMargin: Theme.horizontalPageMargin
-        anchors.right: stars.left
-        anchors.bottom: parent.bottom
-
-        font.pixelSize: Theme.fontSizeExtraSmall
-        font.bold: true
-        color: Theme.primaryColor
-
-        text: hotelLocation
+    Database {
+        id: database
     }
 
     Image {
-        id: stars
+        id: _hotelStars
 
-        anchors.right: parent.right
-        anchors.rightMargin: Theme.paddingMedium
+        anchors.left: parent.left
+        anchors.leftMargin: Theme.horizontalPageMargin
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width * 0.05
         fillMode: Image.PreserveAspectFit
+        source: "../images/" + hotelData.stars + ".png"
+    }
 
-        source: "../images/" + hotelStars + ".png"
+    Text {
+        id: _hotelTitle
+
+        anchors.left: _hotelStars.right
+        anchors.leftMargin: Theme.horizontalPageMargin
+        anchors.right: hotelPrice.left
+        anchors.top: parent.top
+        anchors.topMargin: Theme.paddingMedium
+        horizontalAlignment: Text.AlignLeft
+        color: Theme.primaryColor
+        font.pixelSize: Theme.fontSizeSmall
+
+        text: hotelData.name
+    }
+
+    Text {
+        id: hotelRate
+        anchors.left: _hotelStars.right
+        anchors.leftMargin: Theme.horizontalPageMargin
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: Theme.paddingMedium
+        color: Theme.secondaryHighlightColor
+        font.pixelSize: Theme.fontSizeTiny
+
+        text: qsTr("Rating: ") + hotelData.rating
+    }
+
+    Text {
+        id: hotelFromCenter
+        anchors.right: hotelPrice.left
+        anchors.rightMargin: Theme.horizontalPageMargin
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: Theme.paddingMedium
+        color: Theme.secondaryHighlightColor
+        font.pixelSize: Theme.fontSizeTiny
+
+        text: qsTr("from center: ") + hotelData.distance + " km"
+    }
+
+    Text {
+        id: hotelPrice
+
+        anchors.right: parent.right
+        anchors.rightMargin: Theme.horizontalPageMargin
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: Theme.paddingMedium
+        width: parent.width * 0.15
+        color: Theme.secondaryColor
+        font.pixelSize: Theme.fontSizeExtraSmall
+
+        text: qsTr("Price from\n") + hotelData.price + " " + database.currency
     }
 
     onClicked: {
-        console.log(hotelTitle)
+        console.log(hotelData.name)
+        var locationId = {}
+        locationId.id = hotelData.id
+        pageStack.push(Qt.resolvedUrl("../pages/SearchPage.qml"), {"hotelTitle": hotelData.name, "searchType": "hotel",
+                       locationIsSet: true, location: locationId})
     }
 }

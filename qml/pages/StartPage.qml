@@ -14,16 +14,17 @@ Page {
     }
 
     Component.onCompleted: {
-        getData()
+        getFavoritesData()
     }
 
 
-    function getData() {
-
+    function getFavoritesData() {
         var fav = database.getFavorites()
+        favoritesModel.clear()
         if (fav.length > 0) {
             for (var i in fav) {
                 var parsed = JSON.parse(fav[i])
+//                console.log("Append", JSON.stringify(parsed))
                 favoritesModel.append(parsed)
             }
         }
@@ -53,6 +54,14 @@ Page {
             name: qsTr("Search by coordinates")
             descr: qsTr("Search by coordinates")
             image: "image://theme/icon-m-gps"
+        }
+    }
+
+    Connections {
+        target: database
+        onFavorites: {
+            console.log("onFavoritesChanged")
+            getFavoritesData()
         }
     }
 
@@ -88,13 +97,12 @@ Page {
             spacing: Theme.paddingMedium
             interactive: false
             model: searchTypesList
-            delegate: IconTextSwitch {
-                automaticCheck: false
-                text: name
-                icon.source: image
-                description: descr
+
+            delegate: StartScreenItem {
+                title: name
+                iconSource: image
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("SearchPage.qml"), {searchType: type})
+                   pageStack.push(Qt.resolvedUrl("SearchPage.qml"), {searchType: type})
                 }
             }
 
@@ -114,9 +122,31 @@ Page {
             }
 
             model: favoritesModel
-            delegate: HotelInfoDelegate {
-                enabled: false
+            delegate: FavoritesDelegate {
+                id: hotelInfoDelegate
+//                enabled: false
                 hotelData: favoritesModel.get(index)
+
+                menu: ContextMenu {
+                    MenuItem {
+                        text: qsTr("Delete")
+                        onClicked: {
+                            showRemorseItem()
+                        }
+                    }
+                }
+
+                RemorseItem { id: remorse }
+
+                 function showRemorseItem() {
+                     var idx = index
+                     console.log("Delete", idx, favoritesModel.get(idx).id)
+                     remorse.execute(hotelInfoDelegate, "Deleting", function() {
+                         var id = favoritesModel.get(idx).id.toString()
+                         database.deleteFavorite(id)
+                         favoritesModel.remove(idx)
+                     } )
+                 }
             }
 
             ViewPlaceholder {

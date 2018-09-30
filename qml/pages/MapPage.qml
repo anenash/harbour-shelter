@@ -18,11 +18,13 @@ Page {
     property real lat: 59.91
     property real lon: 10.75
 
+    property real zoom: 10.0
+
     signal setLocation(real lat, real lon)
 
     Component.onCompleted: {
         map.center = QtPositioning.coordinate(root.latitude, root.longitude)
-        map.zoomLevel = 16.0
+        map.zoomLevel = root.zoom
 //        hotelPointer.center = QtPositioning.coordinate(root.latitude, root.longitude)
         hotelPointer.coordinate = QtPositioning.coordinate(root.latitude, root.longitude)
         hotelStars.average  = 3.0

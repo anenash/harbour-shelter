@@ -9,6 +9,23 @@
     </message>
 </context>
 <context>
+    <name>FavoritesDelegate</name>
+    <message>
+        <source>Rating: </source>
+        <translation type="unfinished">Betyg:</translation>
+    </message>
+    <message>
+        <source>from center: </source>
+        <translation type="unfinished">till centrum: </translation>
+    </message>
+    <message>
+        <source>Price from
+</source>
+        <translation type="unfinished">Pris från
+</translation>
+    </message>
+</context>
+<context>
     <name>HotelInfoDelegate</name>
     <message>
         <source>Rating: </source>
@@ -42,6 +59,14 @@
     <message>
         <source>Please, change check-in date</source>
         <translation>Ändra incheckningsdatum</translation>
+    </message>
+    <message>
+        <source> km</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dates:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -159,6 +184,26 @@
         <source>Hotel: </source>
         <translation>Hotell: </translation>
     </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Popularity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Price</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stars</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsPage</name>
@@ -202,6 +247,10 @@
         <source>external browser</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Delete search history</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>StartPage</name>
@@ -232,6 +281,10 @@
     <message>
         <source>Search history</source>
         <translation>Sökhistorik</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

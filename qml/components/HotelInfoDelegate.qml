@@ -8,6 +8,8 @@ import "Utils.js" as Utils
 ListItem {
     property variant hotelData: ({})
     property variant hotelRooms: ([])
+    property string checkinDate
+    property string checkoutDate
 
     contentHeight: Theme.itemSizeLarge
     width: parent.width
@@ -78,6 +80,11 @@ ListItem {
     }
 
     onClicked: {
-        pageStack.push(Qt.resolvedUrl("../pages/HotelInfoPage.qml"), {"hotelData": hotelData, "hotelRooms": hotelRooms})
+        pageStack.push(Qt.resolvedUrl("../pages/HotelInfoPage.qml"), {
+                           "hotelData": hotelData,
+                           "hotelRooms": hotelRooms,
+                           checkinDate: root.checkinDate,
+                           checkoutDate: root.checkoutDate
+                       })
     }
 }

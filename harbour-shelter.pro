@@ -43,7 +43,6 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-shelter-ru.ts
 TRANSLATIONS += translations/harbour-shelter-sv.ts
 
-
 HEADERS += \
     src/apputils.h
 

@@ -94,7 +94,7 @@ Dialog {
             text: qsTr('Search locations by coordinates')
             icon.source: "image://theme/icon-m-gps"
             onClicked: {
-                var coord = pageStack.push(Qt.resolvedUrl("../pages/MapPage.qml"), {latitude: internal.lat, longitude: internal.lon})
+                var coord = pageStack.push(Qt.resolvedUrl("../pages/MapPage.qml"), {latitude: internal.lat, longitude: internal.lon, zoom: 7.0})
                 coord.setLocation.connect(function() {
                     indicator.running = true
                     internal.lat = coord.lat

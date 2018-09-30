@@ -227,5 +227,16 @@ Page {
                 database.storeData("hints", 0, checked)
             }
         }
+
+        StartScreenItem {
+            id: dropFavs
+
+            title: qsTr("Delete search history")
+            iconSource: "image://theme/icon-m-delete"
+
+            onClicked: {
+                database.dropFavorites()
+            }
+        }
     }
 }

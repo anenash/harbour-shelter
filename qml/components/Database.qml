@@ -2,6 +2,7 @@ import QtQuick 2.6
 import QtQuick.LocalStorage 2.0 as Sql
 
 Item {
+    id: root
 
     property variant record
 
@@ -10,6 +11,8 @@ Item {
 
     property bool showHints
     property int  openIn
+
+    signal favorites()
 
     Component.onCompleted: {
         initDatabase()
@@ -30,7 +33,12 @@ Item {
 
         var fltr = getValue("filter")
         if (!fltr) {
-            storeData("filter", 0, "")
+            storeData("filter", 0, "name")
+        }
+
+        if (getName("filter" === "")) {
+            var i = getValue("filter")
+            storeData("filter", i, "name")
         }
 
         var srt = getValue("sort")
@@ -48,7 +56,7 @@ Item {
         var opnLnk = getValue("links")
         if (!opnLnk) {
             opnLnk = 0
-            storeData("hints", 0, opnLnk)
+            storeData("links", 0, opnLnk)
         }
         openIn = opnLnk
     }
@@ -120,6 +128,7 @@ Item {
                 console.log('record exists, update it')
             }
         })
+        root.favorites()
     }
 
     function getFavorite(keyname) {
@@ -143,7 +152,6 @@ Item {
             var result = tx.executeSql('SELECT value FROM favorites')
 //            console.log(result, JSON.stringify(result))
             for(var i = 0; i < result.rows.length; i++) {
-//                print(result.rows.item(i).value)
                 res.push(result.rows.item(i).value)
             }
         })
@@ -151,12 +159,23 @@ Item {
     }
 
     function deleteFavorite(keyname) {
-        console.log('deleteFavorite()')
+        console.log('deleteFavorite()', keyname)
         var res = ""
         if(!internal._db) { return }
         internal._db.transaction( function(tx) {
             res = tx.executeSql('DELETE FROM favorites WHERE keyname=?', [keyname])
+//            console.log("Resut", JSON.stringify(res))
         })
         return res
+    }
+
+    function dropFavorites() {
+        console.log('dropFavorites()')
+        if(!internal._db) { return }
+        internal._db.transaction( function(tx) {
+            tx.executeSql('DROP TABLE favorites')
+            tx.executeSql('CREATE TABLE IF NOT EXISTS favorites(keyname TEXT UNIQUE, value TEXT)')
+        })
+        root.favorites()
     }
 }

@@ -11,6 +11,9 @@ import "../components/Utils.js" as Utils
 Page {
     property variant hotelData: ({})
     property variant hotelRooms: ([])
+    property string checkinDate
+    property string checkoutDate
+
 
     QtObject {
         id: internal
@@ -115,7 +118,7 @@ Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("MapPage.qml"), {latitude: hotelData.location.lat, longitude: hotelData.location.lon})
+                    pageStack.push(Qt.resolvedUrl("MapPage.qml"), {latitude: hotelData.location.lat, longitude: hotelData.location.lon, zoom: 16.0})
                 }
 
             }
@@ -126,10 +129,31 @@ Page {
         }
     }
 
+    Image {
+        id: _hotelStars
+
+        anchors.left: parent.left
+        anchors.leftMargin: Theme.horizontalPageMargin
+        anchors.verticalCenter: detailDates.verticalCenter
+        width: parent.width * 0.05
+        fillMode: Image.PreserveAspectFit
+        source: "../images/" + hotelData.stars + ".png"
+    }
+
+    DetailItem {
+        id: detailDates
+        anchors.top: hotelsSlide.bottom
+        anchors.topMargin: Theme.paddingSmall
+        width: parent.width
+        leftMargin: Theme.paddingSmall
+        label: qsTr("Dates:")
+        value: checkinDate + " - " + checkoutDate
+    }
+
     DetailItem {
         id: detailAddress
 
-        anchors.top: hotelsSlide.bottom
+        anchors.top: detailDates.bottom
         anchors.topMargin: Theme.paddingSmall
         width: parent.width
         leftMargin: Theme.paddingSmall
@@ -143,7 +167,7 @@ Page {
         width: parent.width
         leftMargin: Theme.paddingSmall
         label: qsTr("Distance from center:")
-        value: hotelData.distance
+        value: hotelData.distance + qsTr(" km")
     }
 
     ListView {

@@ -11,6 +11,10 @@ Dialog {
 
     property string searchType: "city"
 
+    property alias hotelTitle: locationField.value
+    property alias location: internal.location
+    property alias locationIsSet: internal.locationIsSet
+
 
     canAccept: internal.locationIsSet && internal.checkinIsSet
 
@@ -22,6 +26,8 @@ Dialog {
         property date checkout: Utils.setCheckoutDate(checkin, "2")
         property bool locationIsSet: false
         property bool checkinIsSet: false
+
+        property string filterKey
 
         property real lat
         property real lon
@@ -64,6 +70,7 @@ Dialog {
     Component.onCompleted: {
         sort.currentIndex = database.getValue("sort")
         filter.currentIndex = database.getValue("filter")
+        internal.filterKey = database.getName("filter")
     }
 
     onAccepted: {
@@ -104,9 +111,11 @@ Dialog {
 
         pageStack.push(Qt.resolvedUrl("ResultsPage.qml"), {"searchType": searchType,
                            searchUrl: url,
-                           filterBy: filter.currentItem.text,
+                           filterBy: internal.filterKey,
                            sortBy: sort.currentIndex,
-                           hotelTitle: locationField.value
+                           hotelTitle: locationField.value,
+                           checkinDate: t.checkIn,
+                           checkoutDate: t.checkOut
                        })
     }
 
@@ -175,6 +184,12 @@ Dialog {
                 IconButton {
                     icon.source: "image://theme/icon-m-remove"
                     onClicked: {
+                        decreaseValue()
+                    }
+                    onPressAndHold: {
+                        decreaseValue()
+                    }
+                    function decreaseValue() {
                         var t = parseInt(daysCount.text)
                         if (t > 1) {
                             t = t - 1
@@ -194,6 +209,12 @@ Dialog {
                 IconButton {
                     icon.source: "image://theme/icon-m-add"
                     onClicked: {
+                        increaseValue()
+                    }
+                    onPressAndHold: {
+                        increaseValue()
+                    }
+                    function increaseValue() {
                         var t = parseInt(daysCount.text)
                         if (t < 31) {
                             t = t + 1
@@ -302,15 +323,27 @@ Dialog {
                 visible: searchType === "city"
 
                 menu: ContextMenu {
-                    MenuItem { text: "name" }
-                    MenuItem { text: "popularity" }
-                    MenuItem { text: "price" }
-                    MenuItem { text: "rating" }
-                    MenuItem { text: "stars" }
+                    MenuItem { text: filter.getFiter(0).title }
+                    MenuItem { text: filter.getFiter(1).title }
+                    MenuItem { text: filter.getFiter(2).title }
+                    MenuItem { text: filter.getFiter(3).title }
+                    MenuItem { text: filter.getFiter(4).title }
                 }
 
                 onCurrentIndexChanged: {
-                    database.storeData("filter", currentIndex, "")
+                    internal.filterKey = getFiter(currentIndex).key
+                    database.storeData("filter", currentIndex, internal.filterKey)
+                }
+
+                function getFiter(index) {
+                    var mapper = [
+                        {key: "name", title: qsTr("Name")},
+                        {key: "popularity", title: qsTr("Popularity")},
+                        {key: "price", title: qsTr("Price")},
+                        {key: "rating", title: qsTr("Rating")},
+                        {key: "stars", title: qsTr("Stars")}
+                    ]
+                    return mapper[index]
                 }
             }
 

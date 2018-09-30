@@ -7,10 +7,15 @@ import "../components"
 import "../components/Utils.js" as Utils
 
 Page {
+    id: root
+
     property string searchType: "city"
     property string searchUrl
     property string filterBy
     property string sortBy
+
+    property string checkinDate
+    property string checkoutDate
 
     property string hotelTitle: ""
 
@@ -147,8 +152,14 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
             if (parsed.status === "ok") {
                 hotels.clear()
                 if (parsed.result.length > 0) {
+                    console.log("\n\n", parsed.result[0], "\n\n")
                     hotels.append({info: parsed.result[0], rooms: JSON.stringify(parsed.result[0].rooms)})
-                    pageStack.replace(Qt.resolvedUrl("HotelInfoPage.qml"), {"hotelData": hotels.get(0).info, "hotelRooms": hotels.get(0).rooms})
+                    pageStack.replace(Qt.resolvedUrl("HotelInfoPage.qml"), {
+                                          "hotelData": hotels.get(0).info,
+                                          "hotelRooms": hotels.get(0).rooms,
+                                          checkinDate: root.checkinDate,
+                                          checkoutDate: root.checkoutDate
+                                      })
                 }
                 indicator.running = false
             }
@@ -195,6 +206,8 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
             delegate: HotelInfoDelegate {
                 hotelData: info
                 hotelRooms: rooms
+                checkinDate: root.checkinDate
+                checkoutDate: root.checkoutDate
             }
 
             footer: Button {
