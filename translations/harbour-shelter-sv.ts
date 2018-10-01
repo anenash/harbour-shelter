@@ -18,12 +18,6 @@
         <source>from center: </source>
         <translation type="unfinished">till centrum: </translation>
     </message>
-    <message>
-        <source>Price from
-</source>
-        <translation type="unfinished">Pris från
-</translation>
-    </message>
 </context>
 <context>
     <name>HotelInfoDelegate</name>
@@ -70,6 +64,21 @@
     </message>
 </context>
 <context>
+    <name>MapPage</name>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ResultsPage</name>
     <message>
         <source>Hotels list</source>
@@ -82,6 +91,11 @@
     <message>
         <source>Please, change date or hotel</source>
         <translation>Ändra datum eller hotell</translation>
+    </message>
+    <message>
+        <source>Please wait.
+Search can take about 30 - 40 seconds</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -128,6 +142,10 @@
     <message>
         <source>Tap on search field on top of the page</source>
         <translation>Tryck på sökfältet i överkant på sidan</translation>
+    </message>
+    <message>
+        <source>Open a map by tapping on search field on top of the page. Tap and hold to select location on the map, than press the &quot;Set&quot; button.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -284,6 +302,10 @@
     </message>
     <message>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search history is empty</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -193,6 +193,12 @@ http://engine.hotellook.com/api/v2/search/getResult.json?searchId=4034914&limit=
 
             anchors.centerIn: parent
             size: BusyIndicatorSize.Large
+
+            ViewPlaceholder {
+                anchors.top: parent.bottom
+                enabled: indicator.running
+                text: qsTr("Please wait.\nSearch can take about 30 - 40 seconds")
+            }
         }
 
         SilicaListView {

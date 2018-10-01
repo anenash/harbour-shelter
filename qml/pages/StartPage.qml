@@ -124,7 +124,6 @@ Page {
             model: favoritesModel
             delegate: FavoritesDelegate {
                 id: hotelInfoDelegate
-//                enabled: false
                 hotelData: favoritesModel.get(index)
 
                 menu: ContextMenu {
@@ -150,9 +149,9 @@ Page {
             }
 
             ViewPlaceholder {
+                anchors.centerIn: parent
                 enabled: favoritesModel.count == 0
-                text: "No items yet"
-                hintText: "Search hotel to add items"
+                text: qsTr("Search history is empty")
             }
 
         }

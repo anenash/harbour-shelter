@@ -4,7 +4,7 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <location filename="../qml/cover/CoverPage.qml" line="8"/>
+        <location filename="../qml/cover/CoverPage.qml" line="18"/>
         <source>Shelter</source>
         <translation>Жильё</translation>
     </message>
@@ -20,13 +20,6 @@
         <location filename="../qml/components/FavoritesDelegate.qml" line="64"/>
         <source>from center: </source>
         <translation>от центра: </translation>
-    </message>
-    <message>
-        <location filename="../qml/components/FavoritesDelegate.qml" line="78"/>
-        <source>Price from
-</source>
-        <translation>Цена от
-</translation>
     </message>
 </context>
 <context>
@@ -83,6 +76,24 @@
     </message>
 </context>
 <context>
+    <name>MapPage</name>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="110"/>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="131"/>
+        <source>Set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/MapPage.qml" line="131"/>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ResultsPage</name>
     <message>
         <location filename="../qml/pages/ResultsPage.qml" line="134"/>
@@ -91,12 +102,18 @@
         <translation>Список отелей</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ResultsPage.qml" line="225"/>
+        <location filename="../qml/pages/ResultsPage.qml" line="200"/>
+        <source>Please wait.
+Search can take about 30 - 40 seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/ResultsPage.qml" line="231"/>
         <source>No hotels found</source>
         <translation>Отели не найдены</translation>
     </message>
     <message>
-        <location filename="../qml/pages/ResultsPage.qml" line="226"/>
+        <location filename="../qml/pages/ResultsPage.qml" line="232"/>
         <source>Please, change date or hotel</source>
         <translation>Пожалуйста, поменяйте дату или отель</translation>
     </message>
@@ -142,17 +159,22 @@
         <translation>Поиск локаций по координатам</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="186"/>
+        <location filename="../qml/components/SearchDialog.qml" line="187"/>
         <source>hotels count: </source>
         <translation>Количество отелей:</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="204"/>
+        <location filename="../qml/components/SearchDialog.qml" line="205"/>
         <source>No hotels/locations found</source>
         <translation>Отелей/локаций не найдено</translation>
     </message>
     <message>
-        <location filename="../qml/components/SearchDialog.qml" line="205"/>
+        <location filename="../qml/components/SearchDialog.qml" line="207"/>
+        <source>Open a map by tapping on search field on top of the page. Tap and hold to select location on the map, than press the &quot;Set&quot; button.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SearchDialog.qml" line="208"/>
         <source>Tap on search field on top of the page</source>
         <translation>Нажмите на поле поиска в верху страницы</translation>
     </message>
@@ -350,9 +372,14 @@
         <translation>История поиска</translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="132"/>
+        <location filename="../qml/pages/StartPage.qml" line="131"/>
         <source>Delete</source>
         <translation>Удалить</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StartPage.qml" line="154"/>
+        <source>Search history is empty</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

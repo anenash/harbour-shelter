@@ -25,7 +25,7 @@ Page {
     Component.onCompleted: {
         map.center = QtPositioning.coordinate(root.latitude, root.longitude)
         map.zoomLevel = root.zoom
-//        hotelPointer.center = QtPositioning.coordinate(root.latitude, root.longitude)
+
         hotelPointer.coordinate = QtPositioning.coordinate(root.latitude, root.longitude)
         hotelStars.average  = 3.0
     }
@@ -107,7 +107,7 @@ Page {
             anchors.rightMargin: Theme.horizontalPageMargin
             anchors.bottomMargin: Theme.paddingMedium
             sourceItem: Button {
-                text: "Reset"
+                text: qsTr("Reset")
                 color: "black"
                 opacity: 0.7
 
@@ -128,7 +128,7 @@ Page {
             anchors.leftMargin: Theme.horizontalPageMargin
             anchors.bottomMargin: Theme.paddingMedium
             sourceItem: Button {
-                text: "Back"
+                text: marker.visible?qsTr("Set"):qsTr("Back")
                 color: "black"
                 opacity: 0.7
 
@@ -140,7 +140,6 @@ Page {
                     }
                     root.backNavigation = true
                     pageStack.pop()
-//                    pageStack.replace(searchDialog, {requestType: "coordinates", lat: root.lat, lon: root.lon})
                 }
             }
         }

@@ -20,7 +20,7 @@ SOURCES += src/harbour-shelter.cpp \
     src/apputils.cpp
 
 DISTFILES += qml/harbour-shelter.qml \
-    qml/cover/CoverPage.qml \
+    qml/cover/* \
     qml/pages/*.qml \
     rpm/harbour-shelter.changes.in \
     rpm/harbour-shelter.changes.run.in \

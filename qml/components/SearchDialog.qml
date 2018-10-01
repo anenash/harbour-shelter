@@ -96,6 +96,7 @@ Dialog {
             onClicked: {
                 var coord = pageStack.push(Qt.resolvedUrl("../pages/MapPage.qml"), {latitude: internal.lat, longitude: internal.lon, zoom: 7.0})
                 coord.setLocation.connect(function() {
+                    indicator.visible = true
                     indicator.running = true
                     internal.lat = coord.lat
                     internal.lon = coord.lon
@@ -200,9 +201,11 @@ Dialog {
             }
 
             ViewPlaceholder {
-                enabled: locationsModel.count == 0 && !indicator.running
+                enabled: locationsModel.count == 0 && !indicator.visible
                 text: qsTr("No hotels/locations found")
-                hintText: qsTr("Tap on search field on top of the page")
+                hintText: requestType === "coordinates" ?
+                              qsTr("Open a map by tapping on search field on top of the page. Tap and hold to select location on the map, than press the \"Set\" button."):
+                              qsTr("Tap on search field on top of the page")
             }
         }
     }

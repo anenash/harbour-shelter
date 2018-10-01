@@ -30,7 +30,7 @@ ListItem {
 
         anchors.left: _hotelStars.right
         anchors.leftMargin: Theme.horizontalPageMargin
-        anchors.right: hotelPrice.left
+        anchors.right: parent.right
         anchors.top: parent.top
         anchors.topMargin: Theme.paddingMedium
         horizontalAlignment: Text.AlignLeft
@@ -54,7 +54,7 @@ ListItem {
 
     Text {
         id: hotelFromCenter
-        anchors.right: hotelPrice.left
+        anchors.right: parent.right
         anchors.rightMargin: Theme.horizontalPageMargin
         anchors.bottom: parent.bottom
         anchors.bottomMargin: Theme.paddingMedium
@@ -64,19 +64,19 @@ ListItem {
         text: qsTr("from center: ") + hotelData.distance + " km"
     }
 
-    Text {
-        id: hotelPrice
+//    Text {
+//        id: hotelPrice
 
-        anchors.right: parent.right
-        anchors.rightMargin: Theme.horizontalPageMargin
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: Theme.paddingMedium
-        width: parent.width * 0.15
-        color: Theme.secondaryColor
-        font.pixelSize: Theme.fontSizeExtraSmall
+//        anchors.right: parent.right
+//        anchors.rightMargin: Theme.horizontalPageMargin
+//        anchors.bottom: parent.bottom
+//        anchors.bottomMargin: Theme.paddingMedium
+//        width: parent.width * 0.15
+//        color: Theme.secondaryColor
+//        font.pixelSize: Theme.fontSizeExtraSmall
 
-        text: qsTr("Price from\n") + hotelData.price + " " + database.currency
-    }
+//        text: qsTr("Price from\n") + hotelData.price + " " + database.currency
+//    }
 
     onClicked: {
         console.log(hotelData.name)
