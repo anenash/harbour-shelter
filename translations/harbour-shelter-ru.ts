@@ -80,17 +80,17 @@
     <message>
         <location filename="../qml/pages/MapPage.qml" line="110"/>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Сброс</translation>
     </message>
     <message>
         <location filename="../qml/pages/MapPage.qml" line="131"/>
         <source>Set</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать</translation>
     </message>
     <message>
         <location filename="../qml/pages/MapPage.qml" line="131"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Назад</translation>
     </message>
 </context>
 <context>
@@ -105,7 +105,8 @@
         <location filename="../qml/pages/ResultsPage.qml" line="200"/>
         <source>Please wait.
 Search can take about 30 - 40 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Пожалуйста, подождите.
+        Поиск может занять примерно 30 - 40 секунд</translation>
     </message>
     <message>
         <location filename="../qml/pages/ResultsPage.qml" line="231"/>
@@ -171,7 +172,7 @@ Search can take about 30 - 40 seconds</source>
     <message>
         <location filename="../qml/components/SearchDialog.qml" line="207"/>
         <source>Open a map by tapping on search field on top of the page. Tap and hold to select location on the map, than press the &quot;Set&quot; button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Откройте карту нажав поле поиска вверху страницы. Нажните и удерживайте палец на выбранной локации, затем, нажмите кнопку &quot;Выбрать&quot;</translation>
     </message>
     <message>
         <location filename="../qml/components/SearchDialog.qml" line="208"/>
@@ -379,7 +380,7 @@ Search can take about 30 - 40 seconds</source>
     <message>
         <location filename="../qml/pages/StartPage.qml" line="154"/>
         <source>Search history is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>История поиска пуста</translation>
     </message>
 </context>
 </TS>
