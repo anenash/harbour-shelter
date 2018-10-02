@@ -291,42 +291,42 @@ Search can take about 30 - 40 seconds</source>
         <translation>Язык вывода результатов поиска</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="87"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="90"/>
         <source>Currency:</source>
         <translation>Валюта:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="94"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="97"/>
         <source>Get results in currency</source>
         <translation>Выводить результаты в</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="199"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="206"/>
         <source>Options</source>
         <translation>Опции</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="205"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="212"/>
         <source>Open booking link in</source>
         <translation>Открыть резервирование в</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="209"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="216"/>
         <source>internal webview</source>
         <translation>встроенном броузере</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="212"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="219"/>
         <source>external browser</source>
         <translation>внешнем броузере</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="223"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="230"/>
         <source>Show hints</source>
         <translation>Показать подсказки</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="234"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="241"/>
         <source>Delete search history</source>
         <translation>Удалить историю поиска</translation>
     </message>

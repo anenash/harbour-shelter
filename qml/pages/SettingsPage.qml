@@ -74,6 +74,9 @@ Page {
                     text: "Poland"
                 }
                 MenuItem {
+                    text: "Swedish"
+                }
+                MenuItem {
                     text: "Thailand"
                 }
             }
@@ -108,6 +111,10 @@ Page {
 
                 MenuItem {
                     text: "GPB"
+                }
+
+                MenuItem {
+                    text: "SEK"
                 }
 
                 MenuItem {

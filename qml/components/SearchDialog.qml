@@ -79,7 +79,7 @@ Dialog {
                     var searchText = searchField.text.replace(/ /g, '%20')
                     var lang = database.language.substring(0,2)
                     //"query=prague&lang=en&lookFor=both&limit=10"
-                    var url = Utils.locations + "lang=" + lang + "&lookFor=" + requestType + "&limit=20&query=" + searchText
+                    var url = Utils.locations + "lang=" + lang + "&lookFor=" + requestType + "&limit=40&query=" + searchText
                     Utils.performRequest("GET", url, getInfo)
                 }
             }

@@ -1,9 +1,5 @@
-#ifdef QT_QML_DEBUG
-#include <QtQuick>
-#endif
-
 #include <sailfishapp.h>
-
+#include <QtQuick>
 #include "apputils.h"
 
 int main(int argc, char *argv[])

@@ -172,7 +172,7 @@ function setCheckoutDate(startDate, days) {
 }
 
 function getLangCode(key) {
-    var d = ["en_US", "en_GB", "en_AU", "en_CA", "en_IE", "ru_RU", "de_DE", "es_ES", "fr_FR", "it_IT", "pl_PL", "th_TH"]
+    var d = ["en_US", "en_GB", "en_AU", "en_CA", "en_IE", "ru_RU", "de_DE", "es_ES", "fr_FR", "it_IT", "pl_PL", "sv_SE", "th_TH"]
     if (key <= d.length) {
         return d[key]
     }
