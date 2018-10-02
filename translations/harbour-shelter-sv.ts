@@ -12,11 +12,11 @@
     <name>FavoritesDelegate</name>
     <message>
         <source>Rating: </source>
-        <translation type="unfinished">Betyg:</translation>
+        <translation>Betyg:</translation>
     </message>
     <message>
         <source>from center: </source>
-        <translation type="unfinished">till centrum: </translation>
+        <translation>till centrum: </translation>
     </message>
 </context>
 <context>
@@ -56,26 +56,26 @@
     </message>
     <message>
         <source> km</source>
-        <translation type="unfinished"></translation>
+        <translation> km</translation>
     </message>
     <message>
         <source>Dates:</source>
-        <translation type="unfinished"></translation>
+        <translation>Datum:</translation>
     </message>
 </context>
 <context>
     <name>MapPage</name>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Återställ</translation>
     </message>
     <message>
         <source>Set</source>
-        <translation type="unfinished"></translation>
+        <translation>Fastställ</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillbaka</translation>
     </message>
 </context>
 <context>
@@ -95,7 +95,8 @@
     <message>
         <source>Please wait.
 Search can take about 30 - 40 seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Vänta!
+Sökning kan ta omkring 30 - 40 sekunder.</translation>
     </message>
 </context>
 <context>
@@ -145,7 +146,7 @@ Search can take about 30 - 40 seconds</source>
     </message>
     <message>
         <source>Open a map by tapping on search field on top of the page. Tap and hold to select location on the map, than press the &quot;Set&quot; button.</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna en karta genom att trycka på sökfältet i sidans överkant. Långtryck för att välja plats på kartan. Tryck sedan på &quot;Fastställ&quot;.</translation>
     </message>
 </context>
 <context>
@@ -204,23 +205,23 @@ Search can take about 30 - 40 seconds</source>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Namn</translation>
     </message>
     <message>
         <source>Popularity</source>
-        <translation type="unfinished"></translation>
+        <translation>Popularitet</translation>
     </message>
     <message>
         <source>Price</source>
-        <translation type="unfinished"></translation>
+        <translation>Pris</translation>
     </message>
     <message>
         <source>Rating</source>
-        <translation type="unfinished"></translation>
+        <translation>Betyg</translation>
     </message>
     <message>
         <source>Stars</source>
-        <translation type="unfinished"></translation>
+        <translation>Stjärnor</translation>
     </message>
 </context>
 <context>
@@ -247,27 +248,27 @@ Search can take about 30 - 40 seconds</source>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ</translation>
     </message>
     <message>
         <source>Open booking link in</source>
-        <translation type="unfinished"></translation>
+        <translation>Öppna bokningslänk i</translation>
     </message>
     <message>
         <source>Show hints</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa tips</translation>
     </message>
     <message>
         <source>internal webview</source>
-        <translation type="unfinished"></translation>
+        <translation>intern webbvy</translation>
     </message>
     <message>
         <source>external browser</source>
-        <translation type="unfinished"></translation>
+        <translation>extern webbläsare</translation>
     </message>
     <message>
         <source>Delete search history</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort sökhistorik</translation>
     </message>
 </context>
 <context>
@@ -302,11 +303,11 @@ Search can take about 30 - 40 seconds</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <source>Search history is empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Sökhistoriken är tom</translation>
     </message>
 </context>
 </TS>
